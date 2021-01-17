@@ -59,7 +59,7 @@ TBD
 ### Task 1: Spotting
 
 ```bash
-python tools/EvaluateSpotting.py --SoccerNet_path /path/to/SoccerNet/ --Predictions_path /path/to/SoccerNet/outputs/
+python EvaluateSpotting.py --SoccerNet_path /path/to/SoccerNet/ --Predictions_path /path/to/SoccerNet/outputs/
 ```
 
 ```python
@@ -97,7 +97,7 @@ TBD
 ### Task 3: Grounding
 
 ```bash
-python tools/EvaluateReplay.py --SoccerNet_path /path/to/SoccerNet/ --Predictions_path /path/to/SoccerNet/outputs/
+python EvaluateGrounding.py --SoccerNet_path /path/to/SoccerNet/ --Predictions_path /path/to/SoccerNet/outputs/
 ```
 
 ```python
