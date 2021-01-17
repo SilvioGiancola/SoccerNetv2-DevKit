@@ -128,7 +128,7 @@ if __name__ == '__main__':
 ### Zip the results
 
 ```bash
-cd /path/to/soccernet/
+cd /path/to/soccernet/outputs/
 zip results_spotting.zip */*/*/results_spotting.json
 zip results_segmentation.zip */*/*/results_segmentation.json
 zip results_grounding.zip */*/*/results_grounding.json
