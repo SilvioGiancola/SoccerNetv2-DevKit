@@ -3,6 +3,8 @@ Development Kit for the SoccerNet Challenge
 
 ## How to download SoccerNet-v2
 
+Please see [here](Download)
+
 ## Extract Video Features
 
 ## Baseline
