@@ -1,6 +1,6 @@
 # Extract Features fro SoccerNet-v2
 
-## Conda environment
+## Create conda environment
 
 ``` bash
 conda create -n SoccerNet-FeatureExtraction python=3.7
