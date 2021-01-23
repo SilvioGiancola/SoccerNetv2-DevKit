@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+
+# Results Inference
+Task1-ActionSpotting/Pooling/models/*/outputs/*
