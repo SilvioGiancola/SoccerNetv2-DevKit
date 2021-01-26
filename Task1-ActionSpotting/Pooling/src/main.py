@@ -83,21 +83,17 @@ def main(args):
     checkpoint = torch.load(os.path.join("models", args.model_name, "model.pth.tar"))
     model.load_state_dict(checkpoint['state_dict'])
 
-    if args.version == 1:
-        average_mAP = testSpotting(test_loader, model=model, model_name=args.model_name)
-        logging.info("Best Performance at end of training " + str(average_mAP))
-        return average_mAP
-    elif args.version == 2:
-        a_mAP, a_mAP_per_class, a_mAP_visible, a_mAP_per_class_visible, a_mAP_unshown, a_mAP_per_class_unshown = testSpotting(test_loader, model=model, model_name=args.model_name)
-        logging.info("Best Performance at end of training ")
-        logging.info("a_mAP visibility all: " +  str(a_mAP))
-        logging.info("a_mAP visibility all per class: " +  str( a_mAP_per_class))
-        logging.info("a_mAP visibility visible: " +  str( a_mAP_visible))
-        logging.info("a_mAP visibility visible per class: " +  str( a_mAP_per_class_visible))
-        logging.info("a_mAP visibility unshown: " +  str( a_mAP_unshown))
-        logging.info("a_mAP visibility unshown per class: " +  str( a_mAP_per_class_unshown))
+    a_mAP, a_mAP_per_class, a_mAP_visible, a_mAP_per_class_visible, a_mAP_unshown, a_mAP_per_class_unshown = \
+        testSpotting(test_loader, model=model, model_name=args.model_name, NMS_window=args.NMS_window, NMS_threshold=args.NMS_threshold)
+    logging.info("Best Performance at end of training ")
+    logging.info("a_mAP visibility all: " +  str(a_mAP))
+    logging.info("a_mAP visibility all per class: " +  str( a_mAP_per_class))
+    logging.info("a_mAP visibility visible: " +  str( a_mAP_visible))
+    logging.info("a_mAP visibility visible per class: " +  str( a_mAP_per_class_visible))
+    logging.info("a_mAP visibility unshown: " +  str( a_mAP_unshown))
+    logging.info("a_mAP visibility unshown per class: " +  str( a_mAP_per_class_unshown))
 
-        return a_mAP
+    return a_mAP
 
 if __name__ == '__main__':
 
@@ -118,6 +114,8 @@ if __name__ == '__main__':
     parser.add_argument('--framerate', required=False, type=int,   default=2,     help='Framerate of the input features' )
     parser.add_argument('--chunk_size', required=False, type=int,   default=60,     help='Size of the chunk (in seconds)' )
     parser.add_argument('--pool',       required=False, type=str,   default="MAX", help='How to pool' )
+    parser.add_argument('--NMS_window',       required=False, type=int,   default=20, help='NMS window in second' )
+    parser.add_argument('--NMS_threshold',       required=False, type=float,   default=0.5, help='NMS threshold for positive results' )
 
     parser.add_argument('--batch_size', required=False, type=int,   default=32,     help='Batch size' )
     parser.add_argument('--LR',       required=False, type=float,   default=1e-03, help='Learning Rate' )

@@ -1,6 +1,5 @@
 # SoccerNetv2-ActionSpotting-Pooling
 
-
 ```bash
 conda create -n SoccerNetv2-Pooling python=3.8
 conda activate SoccerNetv2-Pooling
@@ -21,7 +20,8 @@ python src/main.py \
 --chunk_size 20 \
 --patience 10 \
 --evaluation_frequency=10 \
---pool=MAX
+--pool=MAX \
+--NMS_threshold 0.5
 ```
 
 ## NetVLAD
@@ -37,5 +37,42 @@ python src/main.py \
 --chunk_size 20 \
 --patience 10 \
 --evaluation_frequency=10 \
---pool=NetVLAD
+--pool=NetVLAD \
+--NMS_threshold 0.5
+```
+
+## SoccerNetv1 - legacy
+
+### MaxPooling - SNv1
+
+```bash
+python src/main.py \
+--SoccerNet_path=/path/to/SoccerNet/ \
+--features=ResNET_TF2_PCA512.npy \
+--num_features=512 \
+--model_name=NETVLAD_v1 \
+--version 1 \
+--batch_size 256 \
+--chunk_size 20 \
+--patience 10 \
+--evaluation_frequency=10 \
+--pool=NetVLAD \
+--NMS_threshold 0.0
+```
+
+### NetVLAD - SNv1
+
+```bash
+python src/main.py \
+--SoccerNet_path=/path/to/SoccerNet/ \
+--features=ResNET_TF2_PCA512.npy \
+--num_features=512 \
+--model_name=NETVLAD_v1 \
+--version 1 \
+--batch_size 256 \
+--chunk_size 20 \
+--patience 10 \
+--evaluation_frequency=10 \
+--pool=NetVLAD \
+--NMS_threshold 0.5
 ```
