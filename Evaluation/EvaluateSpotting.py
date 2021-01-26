@@ -16,14 +16,14 @@ if __name__ == '__main__':
                         help='Name of the prediction files as stored in folder (or zipped file) [None=try to infer it]', default=None)
     parser.add_argument('--split', required=False, type=str,
                         help='Set on which to evaluate the performances', default="test")
-    parser.add_argument('--framerate', required=False, type=int,
-                        help='Framerate of the input features', default=2)
+    parser.add_argument('--version', required=False, type=int,
+                        help='Version of SoccerNet [1,2]', default=2)
 
     args = parser.parse_args()
 
     a_mAP, a_mAP_per_class, a_mAP_visible, a_mAP_per_class_visible, a_mAP_unshown, a_mAP_per_class_unshown = \
-        evaluate(SoccerNet_path=args.SoccerNet_path, Predictions_path=args.Predictions_path, split=args.split,
-                 framerate=args.framerate, prediction_file=args.Prediction_file)
+        evaluate(SoccerNet_path=args.SoccerNet_path, Predictions_path=args.Predictions_path,
+                 split=args.split, version=args.version, prediction_file=args.Prediction_file)
 
     print("Average mAP: ", a_mAP)
     print("Average mAP visible: ", a_mAP_visible)
@@ -31,6 +31,3 @@ if __name__ == '__main__':
     print("Average mAP per class: ", a_mAP_per_class)
     print("Average mAP visible per class: ", a_mAP_per_class_visible)
     print("Average mAP unshown per class: ", a_mAP_per_class_unshown)
-
-# python tools/EvaluateSpotting.py --Predictions_path EvalAI/submission/results_spotting/ --SoccerNet_path /media/giancos/Football/SoccerNet/ --Prediction_file Predictions-v2.json
-# python tools/EvaluateSpotting.py --Predictions_path EvalAI/submission/results_spotting.zip --SoccerNet_path EvalAI/annotations/test_annotations_spotting.zip --Prediction_file Predictions-v2.json
