@@ -19,7 +19,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    a_AP = evaluate(SoccerNet_path=args.SoccerNet_path, Predictions_path=args.Predictions_path,
+    results = evaluate(SoccerNet_path=args.SoccerNet_path, Predictions_path=args.Predictions_path,
                     split=args.split, prediction_file=args.Prediction_file)
 
-    print("Average AP: ", a_AP)
+    print("Average AP: ", results["a_AP"])
