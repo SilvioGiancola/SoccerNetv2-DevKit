@@ -113,4 +113,4 @@ python src/main.py \
 ### Note on performances
 
 The implementation of NetVLAD from SoccerNet-v1 considered a confidence threshold of `0.5` for the NMS.
-Setting that value to `0.0` (similar to CALF), lead to comparable performances w.r.t [CALF](Task1-ActionSpotting/CALF/)) (Average-mAP=41.6%).
+Setting that value to `0.0` (similar to CALF), lead to an Average-mAP of 41.68%, comparable with the performances  [CALF](Task1-ActionSpotting/CALF/).
