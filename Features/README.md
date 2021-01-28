@@ -1,5 +1,7 @@
 # Extract Features fro SoccerNet-v2
 
+Precomputed features are available. This code is meant for completeness and reproducibility.
+
 ## Create conda environment
 
 ``` bash
