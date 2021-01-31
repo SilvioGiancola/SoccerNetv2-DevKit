@@ -275,7 +275,7 @@ def testSpotting(dataloader, model, model_name, output_folder="outputs", overwri
 
 
 
-                def get_spot_from_NMS(Input, window=40, thresh=0.0):
+                def get_spot_from_NMS(Input, window, thresh=0.0):
 
                     detections_tmp = np.copy(Input)
                     # res = np.empty(np.size(Input), dtype=bool)
