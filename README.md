@@ -15,7 +15,7 @@ The dataset consists of 500 soccer games including:
 ## How to download SoccerNet-v2 [[Link]](Download)
 
 
-## Extract Video Features [[Link]](Features)
+## How to extract video features [[Link]](Features)
 
 
 ## Baseline Implementations
