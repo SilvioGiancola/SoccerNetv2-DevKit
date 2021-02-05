@@ -50,9 +50,81 @@ Results.zip
 
 TBD
 
-### Task 3: `results_grounding.json`
+### Task 3: `Detection-replays.json`
 
-TBD
+"Game:": "england_epl/2014-2015/2015-05-17 - 18-00 Manchester United 1 - 1 Arsenal", 
+    "half1_time": 2700,# length of half1  in seconds
+    "half2_time": 3043,# length of half1  in seconds
+    "Replays": [ # list of replays
+        {
+            "half": 1, # half time
+            "start": 346,  # start time of replay in seconds
+            "end": 357,  # end time of replay  in seconds
+            "detection": [ # list of predictions
+                {
+                    "time": 81.0, #time of detection in second
+                    "score": 0.004524833057075739 # # confidence score 
+                },
+                {
+                    "time": 164.5,
+                    "score": 0.008931178599596024
+                },
+                {
+                    "time": 246.0,
+                    "score": 0.009728623554110527
+                },
+
+                ...
+                ]
+        },
+        {
+            "half": 1,
+            "start": 532,
+            "end": 541,
+            "detection": [
+                {
+                    "time": 79.5,
+                    "score": 0.008331561461091042
+                },
+                {
+                    "time": 162.0,
+                    "score": 0.02246086485683918
+                },
+                {
+                    "time": 243.0,
+                    "score": 0.02563951350748539
+                },
+
+                ...
+                ]
+
+        },
+        ...      
+        {
+            "half": 2,
+            "start": 2560,
+            "end": 2566,
+            "detection": [
+                {
+                    "time": 74.0,
+                    "score": 0.02719578705728054
+                },
+                {
+                    "time": 161.5,
+                    "score": 0.023679519072175026
+                },
+                {
+                    "time": 237.0,
+                    "score": 0.05776015296578407
+                },
+
+                ...
+                ]
+        
+        }
+
+    ]
+}
 
 ## How to evaluate locally the performances on the testing set
 
