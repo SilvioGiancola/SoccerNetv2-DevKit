@@ -51,7 +51,7 @@ Results.zip
 TBD
 
 ### Task 3: `Detection-replays.json`
-
+```json
 "Game:": "england_epl/2014-2015/2015-05-17 - 18-00 Manchester United 1 - 1 Arsenal", 
     "half1_time": 2700,# length of half1  in seconds
     "half2_time": 3043,# length of half1  in seconds
@@ -125,7 +125,7 @@ TBD
 
     ]
 }
-
+```
 ## How to evaluate locally the performances on the testing set
 
 ### Task 1: Spotting
