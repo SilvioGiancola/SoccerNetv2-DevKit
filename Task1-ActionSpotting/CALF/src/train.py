@@ -259,7 +259,7 @@ def test(dataloader,model, model_name, save_predictions=False):
 
     # Save the predictions to the json format
     if save_predictions:
-        list_game = getListGames("test")
+        list_game = getListGames(dataloader.dataset.split)
         for index in np.arange(len(list_game)):
             predictions2json(detections_numpy[index*2], detections_numpy[(index*2)+1],"outputs/", list_game[index], model.framerate)
 

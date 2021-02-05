@@ -68,7 +68,7 @@ python src/main.py --SoccerNet_path=/path/to/SoccerNet/ \
 --chunks_per_epoch 18000 \
 ```
 
-The weights of the network will be saved in the models/model_name/ folder alongside a log file tracing the training parameters and the evolution of the performances. The predictions for the challenge submission on [EvalAI](https://staging.eval.ai/) (testset split) will be stored in the outputs folder. To submit your results, simply zip the league folders inside a single zip file.
+The weights of the network will be saved in the models/model_name/ folder alongside a log file tracing the training parameters and the evolution of the performances. The predictions for the challenge submission on [EvalAI](https://eval.ai/web/challenges/challenge-page/761/overview) (testset split) will be stored in the outputs folder. To submit your results, simply zip the league folders inside a single zip file.
 
 Note that if you did not download the SoccerNet features beforehand, the code will start by downloading them, which might take a bit of time.
 
@@ -98,6 +98,17 @@ python src/main.py --SoccerNet_path=/path/to/SoccerNet/ \
 --features=ResNET_TF2_PCA512.npy \
 --num_features=512 \
 --model_name=CALF_benchmark \
+--test_only
+```
+
+For producing the results of the challenge, simply use the --challenge parameter. Of course, the performance won't be computed localy since you don't have access to the labels. Upload the predictions saved in the <code>outputs</code> folder on [EvalAI](https://eval.ai/web/challenges/challenge-page/761/overview) to get your challenge performance.
+
+```bash
+python src/main.py --SoccerNet_path=/path/to/SoccerNet/ \
+--features=ResNET_TF2_PCA512.npy \
+--num_features=512 \
+--challenge
+--model_name=CALF_v2 \
 --test_only
 ```
 

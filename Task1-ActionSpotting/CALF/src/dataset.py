@@ -38,6 +38,7 @@ class SoccerNetClips(Dataset):
         self.labels="Labels-v2.json"
         self.K_parameters = K_V2*framerate 
         self.num_detections =15
+        self.split=split
 
         logging.info("Checking/Download features and labels locally")
         downloader = SoccerNetDownloader(path)
@@ -170,10 +171,15 @@ class SoccerNetClipsTesting(Dataset):
         self.labels="Labels-v2.json"
         self.K_parameters = K_V2*framerate
         self.num_detections =15
+        self.split=split
 
         logging.info("Checking/Download features and labels locally")
         downloader = SoccerNetDownloader(path)
-        downloader.downloadGames(files=[self.labels, f"1_{self.features}", f"2_{self.features}"], split=[split], verbose=False)
+        if split == "challenge":
+            downloader.downloadGames(files=[f"1_{self.features}", f"2_{self.features}"], split=[split], verbose=False)
+        else:       
+            downloader.downloadGames(files=[self.labels, f"1_{self.features}", f"2_{self.features}"], split=[split], verbose=False)
+
 
 
     def __getitem__(self, index):
@@ -182,39 +188,42 @@ class SoccerNetClipsTesting(Dataset):
         feat_half1 = np.load(os.path.join(self.path, self.listGames[index], "1_" + self.features))
         feat_half2 = np.load(os.path.join(self.path, self.listGames[index], "2_" + self.features))
 
-        # Load labels
-        labels = json.load(open(os.path.join(self.path, self.listGames[index], self.labels)))
 
         label_half1 = np.zeros((feat_half1.shape[0], self.num_classes))
         label_half2 = np.zeros((feat_half2.shape[0], self.num_classes))
 
-        for annotation in labels["annotations"]:
 
-            time = annotation["gameTime"]
-            event = annotation["label"]
+        # Load labels
+        if os.path.exists(os.path.join(self.path, self.listGames[index], self.labels)):
+            labels = json.load(open(os.path.join(self.path, self.listGames[index], self.labels)))
 
-            half = int(time[0])
+            for annotation in labels["annotations"]:
 
-            minutes = int(time[-5:-3])
-            seconds = int(time[-2::])
-            frame = self.framerate * ( seconds + 60 * minutes ) 
+                time = annotation["gameTime"]
+                event = annotation["label"]
 
-            if event not in self.dict_event:
-                continue
-            label = self.dict_event[event]
+                half = int(time[0])
 
-            value = 1
-            if "visibility" in annotation.keys():
-                if annotation["visibility"] == "not shown":
-                    value = -1
+                minutes = int(time[-5:-3])
+                seconds = int(time[-2::])
+                frame = self.framerate * ( seconds + 60 * minutes ) 
 
-            if half == 1:
-                frame = min(frame, feat_half1.shape[0]-1)
-                label_half1[frame][label] = value
+                if event not in self.dict_event:
+                    continue
+                label = self.dict_event[event]
 
-            if half == 2:
-                frame = min(frame, feat_half2.shape[0]-1)
-                label_half2[frame][label] = value
+                value = 1
+                if "visibility" in annotation.keys():
+                    if annotation["visibility"] == "not shown":
+                        value = -1
+
+                if half == 1:
+                    frame = min(frame, feat_half1.shape[0]-1)
+                    label_half1[frame][label] = value
+
+                if half == 2:
+                    frame = min(frame, feat_half2.shape[0]-1)
+                    label_half2[frame][label] = value
 
         def feats2clip(feats, stride, clip_length):
 
