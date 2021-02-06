@@ -21,7 +21,6 @@ from SoccerNet.Evaluation.utils import EVENT_DICTIONARY_V1, INVERSE_EVENT_DICTIO
 def trainer(train_loader,
             val_loader,
             val_metric_loader,
-            test_loader,
             model,
             optimizer,
             scheduler,
@@ -194,8 +193,14 @@ def test(dataloader, model, model_name):
 
     return mAP
 
-def testSpotting(dataloader, model, model_name, output_folder="outputs", overwrite=True, NMS_window=30, NMS_threshold=0.5):
-    if not os.path.exists(os.path.join("models", model_name,"results_spotting.zip")) or overwrite:
+def testSpotting(dataloader, model, model_name, overwrite=True, NMS_window=30, NMS_threshold=0.5):
+
+    split = '_'.join(dataloader.dataset.split)
+    # print(split)
+    output_results = os.path.join("models", model_name, f"results_spotting_{split}.zip")
+    output_folder = f"outputs_{split}"
+
+    if not os.path.exists(output_results) or overwrite:
         batch_time = AverageMeter()
         data_time = AverageMeter()
 
@@ -341,28 +346,23 @@ def testSpotting(dataloader, model, model_name, output_folder="outputs", overwri
                         fn = os.path.join(base, file)
                         zipobj.write(fn, fn[rootlen:])
 
+
         # zip folder
-        zipResults(zip_path = os.path.join("models", model_name,"results_spotting.zip"),
+        zipResults(zip_path=output_results,
                 target_dir = os.path.join("models", model_name, output_folder),
                 filename="results_spotting.json")
 
-    results = \
-        evaluate(SoccerNet_path=dataloader.dataset.path, 
-                 Predictions_path=os.path.join("models", model_name,"results_spotting.zip"),
+    if split == "challenge": 
+        print("Visit eval.ai to evalaute performances on Challenge set")
+        return None
+
+    results = evaluate(SoccerNet_path=dataloader.dataset.path, 
+                 Predictions_path=output_results,
                  split="test",
                  prediction_file="results_spotting.json", 
-                 version=dataloader.dataset.version)
-
-    a_mAP = results["a_mAP"]
-    a_mAP_per_class = results["a_mAP_per_class"]
-    a_mAP_visible = results["a_mAP_visible"]
-    a_mAP_per_class_visible = results["a_mAP_per_class_visible"]
-    a_mAP_unshown = results["a_mAP_unshown"]
-    a_mAP_per_class_unshown = results["a_mAP_per_class_unshown"]
-        
+                 version=dataloader.dataset.version)    
 
     
-
-    return a_mAP, a_mAP_per_class, a_mAP_visible, a_mAP_per_class_visible, a_mAP_unshown, a_mAP_per_class_unshown
+    return results
 
     # return a_mAP

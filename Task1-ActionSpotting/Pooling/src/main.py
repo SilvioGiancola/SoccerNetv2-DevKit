@@ -25,15 +25,15 @@ def main(args):
     # create dataset
     if not args.test_only:
         if args.version == 1:
-            dataset_Train = SoccerNetClips(path=args.SoccerNet_path, features=args.features, split="train", version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
-            dataset_Valid = SoccerNetClips(path=args.SoccerNet_path, features=args.features, split="valid", version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
-            dataset_Valid_metric  = SoccerNetClips(path=args.SoccerNet_path, features=args.features, split="test", version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
+            dataset_Train = SoccerNetClips(path=args.SoccerNet_path, features=args.features, split=args.split_train, version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
+            dataset_Valid = SoccerNetClips(path=args.SoccerNet_path, features=args.features, split=args.split_valid, version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
+            dataset_Valid_metric  = SoccerNetClips(path=args.SoccerNet_path, features=args.features, split=args.split_valid, version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
 
         if args.version == 2:
-            dataset_Train = SoccerNetClips(path=args.SoccerNet_path, features=args.features, split="train", version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
-            dataset_Valid = SoccerNetClips(path=args.SoccerNet_path, features=args.features, split="valid", version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
-            dataset_Valid_metric  = SoccerNetClips(path=args.SoccerNet_path, features=args.features, split="test", version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
-    dataset_Test  = SoccerNetClipsTesting(path=args.SoccerNet_path, features=args.features, split="test", version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
+            dataset_Train = SoccerNetClips(path=args.SoccerNet_path, features=args.features, split=args.split_train, version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
+            dataset_Valid = SoccerNetClips(path=args.SoccerNet_path, features=args.features, split=args.split_valid, version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
+            dataset_Valid_metric  = SoccerNetClips(path=args.SoccerNet_path, features=args.features, split=args.split_valid, version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
+    dataset_Test  = SoccerNetClipsTesting(path=args.SoccerNet_path, features=args.features, split=args.split_test, version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
 
     # create model
     model = Model(weights=args.load_weights, input_size=args.num_features,
@@ -58,10 +58,7 @@ def main(args):
         val_metric_loader = torch.utils.data.DataLoader(dataset_Valid_metric,
             batch_size=args.batch_size, shuffle=False,
             num_workers=args.max_num_worker, pin_memory=True)
-
-    test_loader = torch.utils.data.DataLoader(dataset_Test,
-        batch_size=1, shuffle=False,
-        num_workers=1, pin_memory=True)
+    
 
     # training parameters
     if not args.test_only:
@@ -74,7 +71,7 @@ def main(args):
         scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', verbose=True, patience=args.patience)
 
         # start training
-        trainer(train_loader, val_loader, val_metric_loader, test_loader, 
+        trainer(train_loader, val_loader, val_metric_loader, 
                 model, optimizer, scheduler, criterion,
                 model_name=args.model_name,
                 max_epochs=args.max_epochs, evaluation_frequency=args.evaluation_frequency)
@@ -83,17 +80,34 @@ def main(args):
     checkpoint = torch.load(os.path.join("models", args.model_name, "model.pth.tar"))
     model.load_state_dict(checkpoint['state_dict'])
 
-    a_mAP, a_mAP_per_class, a_mAP_visible, a_mAP_per_class_visible, a_mAP_unshown, a_mAP_per_class_unshown = \
-        testSpotting(test_loader, model=model, model_name=args.model_name, NMS_window=args.NMS_window, NMS_threshold=args.NMS_threshold)
-    logging.info("Best Performance at end of training ")
-    logging.info("a_mAP visibility all: " +  str(a_mAP))
-    logging.info("a_mAP visibility all per class: " +  str( a_mAP_per_class))
-    logging.info("a_mAP visibility visible: " +  str( a_mAP_visible))
-    logging.info("a_mAP visibility visible per class: " +  str( a_mAP_per_class_visible))
-    logging.info("a_mAP visibility unshown: " +  str( a_mAP_unshown))
-    logging.info("a_mAP visibility unshown per class: " +  str( a_mAP_per_class_unshown))
+    # test on multiple splits [test/challenge]
+    for split in args.split_test:
+        dataset_Test  = SoccerNetClipsTesting(path=args.SoccerNet_path, features=args.features, split=[split], version=args.version, framerate=args.framerate, chunk_size=args.chunk_size*args.framerate)
 
-    return a_mAP
+        test_loader = torch.utils.data.DataLoader(dataset_Test,
+            batch_size=1, shuffle=False,
+            num_workers=1, pin_memory=True)
+
+        results = testSpotting(test_loader, model=model, model_name=args.model_name, NMS_window=args.NMS_window, NMS_threshold=args.NMS_threshold)
+        if results is None:
+            continue
+
+        a_mAP = results["a_mAP"]
+        a_mAP_per_class = results["a_mAP_per_class"]
+        a_mAP_visible = results["a_mAP_visible"]
+        a_mAP_per_class_visible = results["a_mAP_per_class_visible"]
+        a_mAP_unshown = results["a_mAP_unshown"]
+        a_mAP_per_class_unshown = results["a_mAP_per_class_unshown"]
+
+        logging.info("Best Performance at end of training ")
+        logging.info("a_mAP visibility all: " +  str(a_mAP))
+        logging.info("a_mAP visibility all per class: " +  str( a_mAP_per_class))
+        logging.info("a_mAP visibility visible: " +  str( a_mAP_visible))
+        logging.info("a_mAP visibility visible per class: " +  str( a_mAP_per_class_visible))
+        logging.info("a_mAP visibility unshown: " +  str( a_mAP_unshown))
+        logging.info("a_mAP visibility unshown per class: " +  str( a_mAP_per_class_unshown))
+
+    return
 
 if __name__ == '__main__':
 
@@ -106,6 +120,10 @@ if __name__ == '__main__':
     parser.add_argument('--load_weights',   required=False, type=str,   default=None,     help='weights to load' )
     parser.add_argument('--model_name',   required=False, type=str,   default="Pooling",     help='named of the model to save' )
     parser.add_argument('--test_only',   required=False, action='store_true',  help='Perform testing only' )
+
+    parser.add_argument('--split_train', nargs='+', default=["train"], help='list of split for training')
+    parser.add_argument('--split_valid', nargs='+', default=["valid"], help='list of split for validation')
+    parser.add_argument('--split_test', nargs='+', default=["test", "challenge"], help='list of split for testing')
 
 
     parser.add_argument('--version', required=False, type=int,   default=2,     help='Version of the dataset' )

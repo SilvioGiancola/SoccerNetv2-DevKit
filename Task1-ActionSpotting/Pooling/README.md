@@ -29,7 +29,7 @@ pip install SoccerNet matplotlib sklearn scikit-video scenedetect opencv-python=
 
 ```bash
 python src/main.py \
---SoccerNet_path=/path/to/SoccerNet/ \  # Path of the SoccerNet main directory where the features are stored
+--SoccerNet_path=/media/giancos/Football/SoccerNet/ \  # Path of the SoccerNet main directory where the features are stored
 --features=ResNET_TF2_PCA512.npy \      # Feature to use
 --num_features=512 \                    # dimension of the features
 --model_name=NetVLAD_v2 \               # name of the model and destination for the resutls
@@ -39,14 +39,17 @@ python src/main.py \
 --patience 10 \                         # Patience for the reduction of the LR
 --evaluation_frequency=10 \             # Frequency of the evaluation (for classification of clips)
 --pool=NetVLAD \                        # Pooling method [NetVLAD/MAX]
---NMS_threshold 0.5                     # Theshold for the confidence in NMS
+--NMS_threshold 0.5 \                   # Theshold for the confidence in NMS
+--split_train train \                   # split for training (list)
+--split_valid valid \                   # split for validation (list)
+--split_test test challenge             # split for testing (list)
 ```
 
 ### Example: MaxPooling on SoccerNet v1 (3 classes - Average-mAP=29.52%)
 
 ```bash
 python src/main.py \
---SoccerNet_path=/path/to/SoccerNet/ \
+--SoccerNet_path=/media/giancos/Football/SoccerNet/ \
 --features=ResNET_TF2_PCA512.npy \
 --num_features=512 \
 --model_name=MAXPOOL_v1 \
@@ -56,14 +59,17 @@ python src/main.py \
 --patience 10 \
 --evaluation_frequency=10 \
 --pool=MAX \
---NMS_threshold 0.0
+--NMS_threshold 0.0 \
+--split_train train \
+--split_valid valid \
+--split_test test
 ```
 
 ### Example: NetVLAD on SoccerNet v1 (3 classes - Average-mAP=44.67%)
 
 ```bash
 python src/main.py \
---SoccerNet_path=/path/to/SoccerNet/ \
+--SoccerNet_path=/media/giancos/Football/SoccerNet/ \
 --features=ResNET_TF2_PCA512.npy \
 --num_features=512 \
 --model_name=NETVLAD_v1 \
@@ -73,14 +79,17 @@ python src/main.py \
 --patience 10 \
 --evaluation_frequency=10 \
 --pool=NetVLAD \
---NMS_threshold 0.5
+--NMS_threshold 0.5 \
+--split_train train \
+--split_valid valid \
+--split_test test
 ```
 
 ### Example: MaxPooling on SoccerNet v2 (17 classes - Average-mAP=18.5%)
 
 ```bash
 python src/main.py \
---SoccerNet_path=/path/to/SoccerNet/ \
+--SoccerNet_path=/media/giancos/Football/SoccerNet/ \
 --features=ResNET_TF2_PCA512.npy \
 --num_features=512 \
 --model_name=MAXPOOL_v2 \
@@ -90,14 +99,17 @@ python src/main.py \
 --patience 10 \
 --evaluation_frequency=10 \
 --pool=MAX \
---NMS_threshold 0.0
+--NMS_threshold 0.0 \
+--split_train train \
+--split_valid valid \
+--split_test test challenge
 ```
 
 ### Example: NetVLAD on SoccerNet v2 (17 classes - Average-mAP=31.37%))
 
 ```bash
 python src/main.py \
---SoccerNet_path=/path/to/SoccerNet/ \
+--SoccerNet_path=/media/giancos/Football/SoccerNet/ \
 --features=ResNET_TF2_PCA512.npy \
 --num_features=512 \
 --model_name=NETVLAD_v2 \
@@ -107,7 +119,10 @@ python src/main.py \
 --patience 10 \
 --evaluation_frequency=10 \
 --pool=NetVLAD \
---NMS_threshold 0.5
+--NMS_threshold 0.5 \
+--split_train train \
+--split_valid valid \
+--split_test test challenge
 ```
 
 ### Note on performances
