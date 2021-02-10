@@ -26,7 +26,7 @@ mySoccerNetDownloader.downloadGames(files=["Labels-v2.json", "1_ResNET_TF2.npy",
 ### Annotations
 
 - **Labels-v2.json**: Labels from SoccerNet-v2 - action spotting
-- **Labels-camera.json**: Labels from SoccerNet-v1 - camera shot segmentation
+- **Labels-cameras.json**: Labels from SoccerNet-v1 - camera shot segmentation
 - **Labels.json**: Labels from SoccerNet-v1 - action spotting for goals/cards/subs only
 
 ## Pre-extracted Features
