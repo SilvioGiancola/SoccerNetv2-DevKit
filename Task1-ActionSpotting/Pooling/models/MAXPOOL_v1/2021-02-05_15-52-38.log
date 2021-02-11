@@ -1,0 +1,71 @@
+2021-02-05 15:52:38,308 [MainThread  ] [INFO ]  Starting main function
+2021-02-05 15:52:38,308 [MainThread  ] [INFO ]  Parameters:
+2021-02-05 15:52:38,308 [MainThread  ] [INFO ]   SoccerNet_path : /media/giancos/Football/SoccerNet/
+2021-02-05 15:52:38,308 [MainThread  ] [INFO ]         features : ResNET_TF2_PCA512.npy
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]       max_epochs : 1000
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]     load_weights : None
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]       model_name : MAXPOOL_v1
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]        test_only : False
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]      split_train : ['train']
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]      split_valid : ['valid']
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]       split_test : ['test', 'challenge']
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]          version : 1
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]     num_features : 512
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]  evaluation_frequency : 10
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]        framerate : 2
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]       chunk_size : 20
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]             pool : MAX
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]       NMS_window : 20
+2021-02-05 15:52:38,309 [MainThread  ] [INFO ]    NMS_threshold : 0.0
+2021-02-05 15:52:38,310 [MainThread  ] [INFO ]       batch_size : 256
+2021-02-05 15:52:38,310 [MainThread  ] [INFO ]               LR : 0.001
+2021-02-05 15:52:38,310 [MainThread  ] [INFO ]              LRe : 1e-06
+2021-02-05 15:52:38,310 [MainThread  ] [INFO ]         patience : 10
+2021-02-05 15:52:38,310 [MainThread  ] [INFO ]              GPU : -1
+2021-02-05 15:52:38,310 [MainThread  ] [INFO ]   max_num_worker : 4
+2021-02-05 15:52:38,310 [MainThread  ] [INFO ]         loglevel : INFO
+2021-02-05 15:52:38,311 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-02-05 15:52:39,831 [MainThread  ] [INFO ]  Pre-compute clips
+2021-02-05 15:52:51,371 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-02-05 15:52:51,965 [MainThread  ] [INFO ]  Pre-compute clips
+2021-02-05 15:52:54,329 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-02-05 15:52:54,844 [MainThread  ] [INFO ]  Pre-compute clips
+2021-02-05 15:52:57,841 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-02-05 15:53:00,902 [MainThread  ] [INFO ]  Model(
+  (pool_layer): MaxPool1d(kernel_size=40, stride=1, padding=0, dilation=1, ceil_mode=False)
+  (fc): Linear(in_features=512, out_features=4, bias=True)
+  (drop): Dropout(p=0.4, inplace=False)
+  (sigm): Sigmoid()
+)
+2021-02-05 15:53:00,902 [MainThread  ] [INFO ]  Total number of parameters: 2052
+2021-02-05 15:53:00,903 [MainThread  ] [INFO ]  start training
+2021-02-05 15:54:54,055 [MainThread  ] [INFO ]  Validation performance at epoch 11 -> 0.11197929667639982
+2021-02-05 15:56:33,202 [MainThread  ] [INFO ]  Validation performance at epoch 21 -> 0.13317066582275458
+2021-02-05 15:58:13,292 [MainThread  ] [INFO ]  Validation performance at epoch 31 -> 0.17556413976279894
+2021-02-05 15:59:56,258 [MainThread  ] [INFO ]  Validation performance at epoch 41 -> 0.1953440310357412
+2021-02-05 16:01:40,423 [MainThread  ] [INFO ]  Validation performance at epoch 51 -> 0.2105475703213788
+2021-02-05 16:03:23,009 [MainThread  ] [INFO ]  Validation performance at epoch 61 -> 0.21998876343667428
+2021-02-05 16:05:05,678 [MainThread  ] [INFO ]  Validation performance at epoch 71 -> 0.21936192768916016
+2021-02-05 16:05:54,452 [MainThread  ] [INFO ]  Plateau Reached!
+2021-02-05 16:06:48,672 [MainThread  ] [INFO ]  Validation performance at epoch 81 -> 0.22353571517472523
+2021-02-05 16:08:31,297 [MainThread  ] [INFO ]  Validation performance at epoch 91 -> 0.22567605846525685
+2021-02-05 16:10:01,028 [MainThread  ] [INFO ]  Plateau Reached!
+2021-02-05 16:10:14,438 [MainThread  ] [INFO ]  Validation performance at epoch 101 -> 0.22196886303482347
+2021-02-05 16:11:57,070 [MainThread  ] [INFO ]  Validation performance at epoch 111 -> 0.22606277662757387
+2021-02-05 16:11:57,071 [MainThread  ] [INFO ]  Plateau Reached!
+2021-02-05 16:13:40,902 [MainThread  ] [INFO ]  Validation performance at epoch 121 -> 0.22614925358657767
+2021-02-05 16:13:50,587 [MainThread  ] [INFO ]  Plateau Reached!
+2021-02-05 16:15:25,925 [MainThread  ] [INFO ]  Validation performance at epoch 131 -> 0.22614517007066084
+2021-02-05 16:15:46,244 [MainThread  ] [INFO ]  Plateau Reached!
+2021-02-05 16:17:11,286 [MainThread  ] [INFO ]  Validation performance at epoch 141 -> 0.22614126194845344
+2021-02-05 16:17:31,617 [MainThread  ] [INFO ]  Plateau Reached and no more reduction -> Exiting Loop
+2021-02-05 16:17:31,643 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-02-05 16:19:16,866 [MainThread  ] [INFO ]  Best Performance at end of training 
+2021-02-05 16:19:16,866 [MainThread  ] [INFO ]  a_mAP visibility all: 0.2951812917740185
+2021-02-05 16:19:16,866 [MainThread  ] [INFO ]  a_mAP visibility all per class: [0.15677143693197912, 0.4092668677204924, 0.31950557066958385]
+2021-02-05 16:19:16,866 [MainThread  ] [INFO ]  a_mAP visibility visible: None
+2021-02-05 16:19:16,866 [MainThread  ] [INFO ]  a_mAP visibility visible per class: None
+2021-02-05 16:19:16,866 [MainThread  ] [INFO ]  a_mAP visibility unshown: None
+2021-02-05 16:19:16,866 [MainThread  ] [INFO ]  a_mAP visibility unshown per class: None
+2021-02-05 16:19:16,867 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-02-05 16:20:14,164 [MainThread  ] [INFO ]  Total Execution Time is 1655.8555042743683 seconds
