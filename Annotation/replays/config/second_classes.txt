@@ -1,0 +1,4 @@
+abrupt
+logo
+smooth
+other
