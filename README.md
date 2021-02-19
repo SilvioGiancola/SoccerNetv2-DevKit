@@ -27,6 +27,9 @@ The dataset consists of 500 soccer games including:
 
 ## Evaluation [[Link]](Evaluation)
 
+## Visualizations
+
+- Annotation tool [[Link]](Annotation)
 
 ## Citation
 
