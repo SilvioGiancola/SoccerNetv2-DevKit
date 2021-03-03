@@ -1,4 +1,4 @@
-# SoccerNet-v2 - Replay Grounding - CALF_more_nagtive
+# SoccerNet-v2 - Replay Grounding - CALF_more_negative
 
 This repository contains the code to reproduce the replay grounding result of the paper: "SoccerNet-v2 : A Dataset and Benchmarks for Holistic Understanding of Broadcast Soccer Videos" with two three baslines:
 
@@ -29,14 +29,9 @@ This repository contains the code to reproduce the replay grounding result of th
 The task consists in retrieving the timestamp of the action shown in a
 given replay shot within the whole game. 
 
-<p align="center"><img src="img/qualitative_replay.png" width="480"></p>
+<p align="center"><img src="Images/qualitative_replay.png" width="480"></p>
 
-<!-- For more information about the CALF method, check out our presentation video. To see more of our work, subscribe to our YouTube channel [__Acad AI Research__](https://www.youtube.com/channel/UCYkYA7OwnM07Cx78iZ6RHig?sub_confirmation=1)
 
-<a href="https://www.youtube.com/watch?v=51cyRDcmO00">
-<p align="center"><img src="img/Miniature-context-YouTube.png" width="720"></p>
-</a>
- -->
 ## Getting Started
 
 The following instructions will help you install the required libraries and the dataset to run the code. The code runs in <code>python 3</code> and was tested in a conda environment. Pytorch is used as deep learning library. 
@@ -59,7 +54,7 @@ pip install SoccerNet
 
 The code for training and testing the network is located inside the <code>src</code> folder under the name <code>main.py</code>. The architecture of the network is in the <code>model.py</code> under the name *ContextAwareModel*. Feel free to change the architecture and test your own!
 
-<p align="center"><img src="img/network.png" width="640"></p>
+<p align="center"><img src="Images/Figure_Grounding.png" width="640"></p>
 
 To train the network, simply run the following command from the root folder:
 
