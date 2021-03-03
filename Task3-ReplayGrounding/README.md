@@ -20,7 +20,7 @@ This repository contains the code to reproduce the replay grounding result of th
 The task consists in retrieving the timestamp of the action shown in a
 given replay shot within the whole game.
 
-<p align="center"><img src="img/qualitative_replay.png" width="480"></p>
+<p align="center"><img src="Images/qualitative_replay.png" width="480"></p>
 
 
 ## Getting Started
