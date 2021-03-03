@@ -1,0 +1,43 @@
+Copyright (c) 2020 holders: 
+
+- University of Liège (ULiège), Belgium.
+- King Abdullah University of Science and Technology (KAUST), Saudi Arabia.
+- Marc Van Droogenbroeck (M.VanDroogenbroeck@uliege.be), Professor at the University of Liège (ULiège).
+
+
+Code Contributing Authors: 
+
+- Anthony Cioppa (anthony.cioppa@uliege.be), University of Liège (ULiège), Montefiore Institute, TELIM.
+- Adrien Deliège (adrien.deliege@uliege.be), University of Liège (ULiège), Montefiore Institute, TELIM.
+- Silvio Giancola (silvio.giancola@kaust.edu.sa), King Abdullah University of Science and Technology (KAUST), Image and Video Understanding Laboratory (IVUL), part of the Visual Computing Center (VCC).
+- Meisam J. Seikavandi (meisamjam@gmail.com), Aalborg University (AAU), Visual Analysis of People Laboratory (VAP).
+- Jacob V. Dueholm (jvdu@create.aau.dk), Aalborg University (AAU), Visual Analysis of People Laboratory (VAP).
+
+
+Special thanks for their supervision to:
+
+- Kamal Nasrollahi, Milestone Systems.
+- Bernard Ghanem, King Abdullah University of Science and Technology (KAUST).
+- Thomas B. Moeslund, Aalborg University (AAU).
+- Marc Van Droogenbroeck, University of Liège (ULiège).
+
+
+To cite this repository, use the following bibtex entries:
+
+@InProceedings{Deliege2020SoccerNetv2,
+  author = { Deliège, Adrien and Cioppa, Anthony and Giancola, Silvio and Seikavandi, Meisam J. and Dueholm, Jacob V. and Nasrollahi, Kamal and Ghanem, Bernard and Moeslund, Thomas B. and Van Droogenbroeck, Marc},
+  title = {SoccerNet-v2 : A Dataset and Benchmarks for Holistic Understanding of Broadcast Soccer Videos},
+  booktitle = {CoRR},
+  month = {Nov},
+  year = {2020}
+}
+
+```bibtex
+@InProceedings{Cioppa2020Context,
+  author = {Cioppa, Anthony and Deliège, Adrien and Giancola, Silvio and Ghanem, Bernard and Van Droogenbroeck, Marc and Gade, Rikke and Moeslund, Thomas B.},
+  title = {A Context-Aware Loss Function for Action Spotting in Soccer Videos},
+  booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  month = {June},
+  year = {2020}
+}
+```
