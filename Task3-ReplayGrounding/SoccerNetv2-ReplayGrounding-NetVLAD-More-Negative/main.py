@@ -79,11 +79,8 @@ def main(args):
                 annotation_path=args.SoccerNet_path,detection_path=args.detection_path, save_results=args.save_results)
 
     # For the best model only
-    load_path=os.path.join("models", args.model_name, "model.pth.tar")
-    if args.test_only:
-        load_path=args.load_weights
-    checkpoint = torch.load(load_path)
-    model.load_state_dict(checkpoint['state_dict'],strict=False)
+    checkpoint = torch.load(s.path.join("models", args.model_name, "model.pth.tar"))
+    model.load_state_dict(checkpoint['state_dict'])
 
     average_mAP = test(test_loader, model=model, model_name=args.model_name,split='test',annotation_path=args.SoccerNet_path,detection_path=args.detection_path,save_results=args.save_results)
     logging.info("Best Performance at end of training " + str(average_mAP))
