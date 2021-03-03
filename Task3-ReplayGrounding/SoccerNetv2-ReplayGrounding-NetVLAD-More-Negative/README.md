@@ -29,7 +29,7 @@ This repository contains the code to reproduce the replay grounding result of th
 The task consists in retrieving the timestamp of the action shown in a
 given replay shot within the whole game. 
 
-<p align="center"><img src="img/qualitative_replay.png" width="480"></p>
+<p align="center"><img src="Images/qualitative_replay.png" width="480"></p>
 
 <!-- For more information about the CALF method, check out our presentation video. To see more of our work, subscribe to our YouTube channel [__Acad AI Research__](https://www.youtube.com/channel/UCYkYA7OwnM07Cx78iZ6RHig?sub_confirmation=1)
 
