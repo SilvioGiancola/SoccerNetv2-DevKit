@@ -1,1 +1,1 @@
-# Baselines for Camera Shot Segmentation
+# Baselines for Camera Shot Segmentation and Camera Change Detection
