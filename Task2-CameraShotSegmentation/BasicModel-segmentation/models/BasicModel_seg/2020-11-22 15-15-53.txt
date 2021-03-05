@@ -1,0 +1,46 @@
+2020-11-22 15:15:53,519 [MainThread  ] [INFO ]  Starting main function
+2020-11-22 15:15:53,519 [MainThread  ] [INFO ]  Parameters:
+2020-11-22 15:15:53,519 [MainThread  ] [INFO ]   SoccerNet_path : /media/giancos/Football/SoccerNet/
+2020-11-22 15:15:53,519 [MainThread  ] [INFO ]         features : ResNET_TF2_PCA512.npy
+2020-11-22 15:15:53,519 [MainThread  ] [INFO ]       max_epochs : 1000
+2020-11-22 15:15:53,519 [MainThread  ] [INFO ]     load_weights : None
+2020-11-22 15:15:53,519 [MainThread  ] [INFO ]       model_name : BasicModel_seg
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]        test_only : False
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]          version : 2
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]     num_features : 512
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]      dim_capsule : 16
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]        framerate : 2
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]       chunk_size : 24
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]  receptive_field : 8
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]   num_detections : 9
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]     lambda_coord : 5.0
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]     lambda_noobj : 0.5
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]  loss_weight_segmentation : 0.002
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]  loss_weight_detection : 1.0
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]        scheduler : ReduceLRonPlateau
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]        criterion : MSE
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]       batch_size : 1
+2020-11-22 15:15:53,520 [MainThread  ] [INFO ]               LR : 0.0001
+2020-11-22 15:15:53,521 [MainThread  ] [INFO ]         patience : 25
+2020-11-22 15:15:53,521 [MainThread  ] [INFO ]              GPU : -1
+2020-11-22 15:15:53,521 [MainThread  ] [INFO ]   max_num_worker : 4
+2020-11-22 15:15:53,521 [MainThread  ] [INFO ]         loglevel : INFO
+2020-11-22 15:15:53,522 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2020-11-22 15:15:53,885 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2020-11-22 15:15:53,999 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2020-11-22 15:15:54,123 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2020-11-22 15:15:54,341 [MainThread  ] [INFO ]  Model(
+  (conv_1): Conv1d(512, 128, kernel_size=(21,), stride=(1,), padding=(10,))
+  (conv_2): Conv1d(128, 32, kernel_size=(21,), stride=(1,), padding=(10,))
+  (conv_3): Conv1d(32, 13, kernel_size=(21,), stride=(1,), padding=(10,))
+)
+2020-11-22 15:15:54,342 [MainThread  ] [INFO ]  Total number of parameters: 1471181
+2020-11-22 15:15:54,342 [MainThread  ] [INFO ]  start training
+2020-11-22 15:24:45,018 [MainThread  ] [INFO ]  Plateau Reached!
+2020-11-22 15:31:20,743 [MainThread  ] [INFO ]  Plateau Reached!
+2020-11-22 15:38:20,108 [MainThread  ] [INFO ]  Plateau Reached!
+2020-11-22 15:45:45,266 [MainThread  ] [INFO ]  Plateau Reached!
+2020-11-22 15:53:15,030 [MainThread  ] [INFO ]  Plateau Reached and no more reduction -> Exiting Loop
+2020-11-22 15:53:18,608 [MainThread  ] [INFO ]  Performance at end training 138 -> (0.34193516, 0.37832292056864614, 0.9033224468860146)
+2020-11-22 15:53:22,051 [MainThread  ] [INFO ]  Best Performance at end of training (0.35758826, 0.3952693824969412, 0.9088103057359247)
+2020-11-22 15:53:22,052 [MainThread  ] [INFO ]  Total Execution Time is 2248.533031463623 seconds
