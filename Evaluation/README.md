@@ -1,8 +1,10 @@
 # Evaluation
 
-We provide evaluation functions on our pip package (`pip install SoccerNet`) as well as an evaluation server on [EvalAI]().
+We provide evaluation functions directly integrated in our pip package (`pip install SoccerNet`) as well as an evaluation server on [EvalAI](https://eval.ai/web/challenges/challenge-page/761/overview).
 
 ## Ouput Format
+
+To submit your results on EvalAI or to use the integreted function of the pip package, the predictions of the network have to be saved in a specific format, with a specific folder structure.
 
 ```
 Results.zip
@@ -11,10 +13,12 @@ Results.zip
      - game full name
        - results_spotting.json
        - results_segmentation.json
-       - results_ground.json
+       - results_grounding.json
 ```
 
 ### Task 1: `results_spotting.json`
+
+For the action spotting task, each json file needs to be constructed as follows:
 
 ```json
 {
@@ -50,9 +54,13 @@ Results.zip
 
 TBD
 
-### Task 3: `Detection-replays.json`
+### Task 3: `results_grounding.json`
+
+For the replay grounding task, each json file needs to be constructed as follows:
+
 ```json
-"Game:": "england_epl/2014-2015/2015-05-17 - 18-00 Manchester United 1 - 1 Arsenal", 
+{
+    "UrlLocal:": "england_epl/2014-2015/2015-05-17 - 18-00 Manchester United 1 - 1 Arsenal", 
     "half1_time": 2700,# length of half1  in seconds
     "half2_time": 3043,# length of half1  in seconds
     "Replays": [ # list of replays
@@ -135,31 +143,16 @@ python EvaluateSpotting.py --SoccerNet_path /path/to/SoccerNet/ --Predictions_pa
 ```
 
 ```python
-from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
-
 from SoccerNet.Evaluation.ActionSpotting import evaluate
+results = evaluate(SoccerNet_path=PATH_DATASET, Predictions_path=PATH_PREDICTIONS,
+                   split="test", version=2, prediction_file="results_spotting.json")
 
-if __name__ == '__main__':
-
-    # Load the arguments
-    parser = ArgumentParser(description='Evaluation for Action Spotting',
-        formatter_class=ArgumentDefaultsHelpFormatter)
-
-    parser.add_argument('--SoccerNet_path',   required=True, type=str, help='Path to the SoccerNet-V2 dataset folder' )
-    parser.add_argument('--Predictions_path',   required=True, type=str, help='Path to the predictions folder' )
-    parser.add_argument('--split',   required=False, type=str, default= "test", help='Set on which to evaluate the performances' )
-    parser.add_argument('--framerate', required=False, type=int,   default=2,     help='Framerate of the input features' )
-
-    args = parser.parse_args()
-
-    a_mAP, a_mAP_per_class, a_mAP_visible, a_mAP_per_class_visible, a_mAP_unshown, a_mAP_per_class_unshown = evaluate(args.SoccerNet_path, args.Predictions_path, args.split, args.framerate)
-
-    print("Average mAP: ", a_mAP)
-    print("Average mAP visible: ", a_mAP_visible)
-    print("Average mAP unshown: ", a_mAP_unshown)
-    print("Average mAP per class: ", a_mAP_per_class)
-    print("Average mAP visible per class: ", a_mAP_per_class_visible)
-    print("Average mAP unshown per class: ", a_mAP_per_class_unshown)
+print("Average mAP: ", results["a_mAP"])
+print("Average mAP per class: ", results["a_mAP_per_class"])
+print("Average mAP visible: ", results["a_mAP_visible"])
+print("Average mAP visible per class: ", results["a_mAP_per_class_visible"])
+print("Average mAP unshown: ", results["a_mAP_unshown"])
+print("Average mAP unshown per class: ", results["a_mAP_per_class_unshown"])
 ```
 
 ### Task 2: Segmentation
@@ -173,26 +166,17 @@ python EvaluateGrounding.py --SoccerNet_path /path/to/SoccerNet/ --Predictions_p
 ```
 
 ```python
-from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
-
 from SoccerNet.Evaluation.ReplayGrounding import evaluate
 
-if __name__ == '__main__':
+results = evaluate(SoccerNet_path=PATH_DATASET, Predictions_path=PATH_PREDICTIONS,
+                   split="test", version=2, prediction_file="results_grounding.json")
 
-    # Load the arguments
-    parser = ArgumentParser(description='Evaluation for Replay Grounding',
-        formatter_class=ArgumentDefaultsHelpFormatter)
-
-    parser.add_argument('--SoccerNet_path',   required=False, type=str,   default="/media/giancos/Football/SoccerNet/",     help='Path for SoccerNet' )
-    parser.add_argument('--Predictions_path',   required=False, type=str,   default="/media/giancos/Football/SoccerNet/",     help='Path for Output_results' )
-    parser.add_argument('--split',   required=False, type=str, default= "test", help='Set on which to evaluate the performances' )
-    parser.add_argument('--framerate', required=False, type=int,   default=2,     help='Framerate of the input features' )
-
-    args = parser.parse_args()
-
-    results = evaluate(args.SoccerNet_path, args.Predictions_path, args.split, args.framerate)
-
-    print(results)
+print("Average mAP: ", results["a_mAP"])
+print("Average mAP per class: ", results["a_mAP_per_class"])
+print("Average mAP visible: ", results["a_mAP_visible"])
+print("Average mAP visible per class: ", results["a_mAP_per_class_visible"])
+print("Average mAP unshown: ", results["a_mAP_unshown"])
+print("Average mAP unshown per class: ", results["a_mAP_per_class_unshown"])
 ```
 
 ## How to evaluate online the performances on the challenge
