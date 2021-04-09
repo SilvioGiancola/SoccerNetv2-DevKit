@@ -14,8 +14,6 @@ The dataset consists of 500 complete soccer games including:
  - Annotations of camera replays linked to actions (Labels-cameras.json).
  - Annotations of camera changes and camera types for 200 games (Labels-cameras.json).
 
-<p align="center"><img src="Images/Videos_and_features.png" width="720"></p>
-
 Participate in our upcoming Challenge at CVPR 2021 and try to win up to 1000$ sponsored by [Second Spectrum](https://www.secondspectrum.com/index.html)! All details can be found on the [challenge website](https://eval.ai/web/challenges/challenge-page/761/overview), or on the [main page](https://soccer-net.org/).
 
 The participation deadline is fixed at the 30th of May 2021.
@@ -32,13 +30,15 @@ To install the pip package simply run:
 
 <code>pip install SoccerNet</code>
 
-Please follow the instructions provided in the [Download](Download) folder of this repository. Do also mind that signing an Non-Disclosure agreement (NDA) is required to access the LQ and HQ videos: [NDA](https://docs.google.com/forms/d/e/1FAIpQLSfYFqjZNm4IgwGnyJXDPk2Ko_lZcbVtYX73w5lf6din5nxfmA/viewform)
+Please follow the instructions provided in the [Download](Download) folder of this repository. Do also mind that signing an Non-Disclosure agreement (NDA) is required to access the LQ and HQ videos: [NDA](https://docs.google.com/forms/d/e/1FAIpQLSfYFqjZNm4IgwGnyJXDPk2Ko_lZcbVtYX73w5lf6din5nxfmA/viewform).
 
 ## How to extract video features 
 
 As it was one of the most requested features on SoccerNet-V1, this repository provides functions to automatically extract the ResNet-152 features and compute the PCA on your own broadcast videos. These functions allow you to test pre-trained action spotting, camera segmentation or replay grounding models on your own games.
 
 The functions to extract the video features can be found in the [Features](Features) folder.
+
+<p align="center"><img src="Images/Videos_and_features.png" width="720"></p>
 
 ## Baseline Implementations
 
