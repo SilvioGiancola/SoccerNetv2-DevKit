@@ -37,6 +37,8 @@ mySoccerNetDownloader.downloadGames(files=["1_HQ.mkv", "2_HQ.mkv", "video.ini"],
 ```
 ## What data are available for Download?
 
+<p align="center"><img src="../Images/Videos_and_features.png" width="720"></p>
+
 ### Annotations
 
 - **Labels-v2.json**: Labels from SoccerNet-v2 - action spotting
