@@ -6,7 +6,7 @@ You can use the pip package for that purpose:
 pip install SoccerNet --upgrade
 ```
 
-Then usethe API to downlaod the data of interest:
+Then use the API to downlaod the data of interest:
 
 ```
 import SoccerNet
@@ -15,12 +15,26 @@ from SoccerNet.Downloader import SoccerNetDownloader
 mySoccerNetDownloader = SoccerNetDownloader(
     LocalDirectory="/path/to/SoccerNet")
 
-mySoccerNetDownloader.password = input("Password for videos?:\n")
+# download labels SN v2
+mySoccerNetDownloader.downloadGames(files=["Labels-v2.json"], split=["train","valid","test"])
+# download labels for camera shot
+mySoccerNetDownloader.downloadGames(files=["Labels-cameras.json"], split=["train","valid","test"]) 
 
-mySoccerNetDownloader.downloadGames(files=["Labels-v2.json", "1_ResNET_TF2.npy", "2_ResNET_TF2.npy"],
-                                    split=["train", "valid", "test", "challenge"])  # download Features and Spotting Annotations
+# download Features reduced with PCA
+mySoccerNetDownloader.downloadGames(files=["1_ResNET_TF2_PCA512.npy", "2_ResNET_TF2_PCA512.npy"], split=["train","valid","test","challenge"])
+
 ```
 
+If you want to download the videos, you will need to fill a NDA to get the password.
+
+```
+mySoccerNetDownloader.password = input("Password for videos?:\n")
+
+# download LQ Videos
+mySoccerNetDownloader.downloadGames(files=["1.mkv", "2.mkv"], split=["train","valid","test","challenge"])
+# download HQ Videos
+mySoccerNetDownloader.downloadGames(files=["1_HQ.mkv", "2_HQ.mkv", "video.ini"], split=["train","valid","test","challenge"])
+```
 ## What data are available for Download?
 
 ### Annotations
