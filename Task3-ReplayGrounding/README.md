@@ -40,7 +40,7 @@ pip install SoccerNet
 ```
 
 
-### Baslines
+### Baselines
 - SoccerNetv2-ReplayGrounding-CALF [[Link]](SoccerNetv2-ReplayGrounding-CALF)
 - SoccerNetv2-ReplayGrounding-CALF_more_negative [[Link]](SoccerNetv2-ReplayGrounding-CALF_more_negative)
 - SoccerNetv2-ReplayGrounding-NetVLAD-More-Negative [[Link]](SoccerNetv2-ReplayGrounding-NetVLAD-More-Negative)
