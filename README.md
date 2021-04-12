@@ -17,6 +17,7 @@ The dataset consists of 500 complete soccer games including:
 Participate in our upcoming Challenge at CVPR 2021 and try to win up to 1000$ sponsored by [Second Spectrum](https://www.secondspectrum.com/index.html)! All details can be found on the [challenge website](https://eval.ai/web/challenges/challenge-page/761/overview), or on the [main page](https://soccer-net.org/).
 
 The participation deadline is fixed at the 30th of May 2021.
+The official rules and guidelines are available on [ChallengeRules.md](ChallengeRules.md).
 
 <a href="https://youtu.be/T8Qc39FcQ7A">
 <p align="center"><img src="Images/Miniature.png" width="720"></p>
