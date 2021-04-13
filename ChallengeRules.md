@@ -22,7 +22,7 @@ Prizes 💲💲💲 include $1000 cash award ($500 for Action Spotting and $500 
 
 ## Who can participate / How to participate?
 
- - Any individual can participate to the challenge, expect the organizers.
+ - Any individual can participate to the challenge, except the organizers.
  - The participants are recommended to form a team to participate.
  - Each team can have one or more members. 
  - An individual/team can compete on both task.
@@ -35,9 +35,9 @@ Prizes 💲💲💲 include $1000 cash award ($500 for Action Spotting and $500 
 
  - For each task, the winner is the individual/team who reach the highest performance on the **challenge** set.
  - The metrics taken into consideration are the **Average-mAP for Action Spotting** and the **Average-AP for Replay Grounding**.
- - The deadline for to submit your results is May 30th.
+ - The deadline to submit your results is May 30th at 11.59 pm Pacific Time.
  - The teams that perform best in each task will be granted $500 from our sponsor [Second Spectrum](https://www.secondspectrum.com/index.html).
- - In order to be eligible for the prize, we require the individual/team to provide a short report describing the details of the methodology (CVPR format / 2-4 pages)
+ - In order to be eligible for the prize, we require the individual/team to provide a short report describing the details of the methodology (CVPR format, max 2 pages)
 
 
 
