@@ -23,7 +23,10 @@ import cv2  # pip install opencv-python (==3.4.11.41)
 import imutils  # pip install imutils
 import skvideo.io
 from tqdm import tqdm
+import pickle as pkl
 
+from sklearn.decomposition import PCA, IncrementalPCA  # pip install scikit-learn
+from sklearn.preprocessing import StandardScaler
 import json
 
 import random
@@ -100,6 +103,40 @@ class VideoFeatureExtractor():
         np.save(path_features_output, features)
 
 
+class PCAReducer():
+    def __init__(self, pca_file=None, scaler_file=None):
+        self.pca_file = pca_file
+        self.scaler_file = scaler_file
+        self.loadPCA()
+    
+    def loadPCA(self):
+        # Read pre-computed PCA
+        self.pca = None
+        if self.pca_file is not None:
+            with open(self.pca_file, "rb") as fobj:
+                self.pca = pkl.load(fobj)
+
+        # Read pre-computed average
+        self.average = None
+        if self.scaler_file is not None:
+            with open(self.scaler_file, "rb") as fobj:
+                self.average = pkl.load(fobj)
+
+    def reduceFeatures(self, input_features, output_features, overwrite=False):
+        logging.info(f"reducing features {input_features}")
+
+        if os.path.exists(output_features) and not overwrite:
+            logging.info(
+                "Features already exists, use overwrite=True to overwrite them. Exiting.")
+            return
+        feat = np.load(input_features)
+        if self.average is not None:
+            feat = feat - self.average
+        if self.pca is not None:
+            feat = self.pca.transform(feat)
+        np.save(output_features, feat)
+
+
 if __name__ == "__main__":
     # Argument parser
     parser = argparse.ArgumentParser(
@@ -135,6 +172,12 @@ if __name__ == "__main__":
     parser.add_argument('--FPS', type=float, default=2.0,
                         help="FPS for the features [default:2.0]")
 
+    # PCA reduction
+    parser.add_argument('--PCA', type=str, default="pca_512_TF2.pkl",
+                        help="Pickle with pre-computed PCA")
+    parser.add_argument('--PCA_scaler', type=str, default="average_512_TF2.pkl",
+                        help="Pickle with pre-computed PCA scaler")
+                        
     args = parser.parse_args()
     # print(args)
     logging.basicConfig(
@@ -162,6 +205,13 @@ if __name__ == "__main__":
                                        duration=args.duration,
                                        overwrite=args.overwrite)
 
+    if args.PCA is not None or args.PCA_scaler is not None:
+        myPCAReducer = PCAReducer(pca_file=args.PCA,
+                                  scaler_file=args.PCA_scaler)
+
+        myPCAReducer.reduceFeatures(input_features=args.path_features,
+                                    output_features=args.path_features,
+                                    overwrite=args.overwrite)
 
 # import numpy as np
 # np.load("/media/giancos/Football/SoccerNet/england_epl/2014-2015/2015-02-21 - 18-00 Chelsea 1 - 1 Burnley/BUTTA.npy") - np.load("/media/giancos/Football/SoccerNet/england_epl/2014-2015/2015-02-21 - 18-00 Chelsea 1 - 1 Burnley/1_ResNET_TF2.npy")
