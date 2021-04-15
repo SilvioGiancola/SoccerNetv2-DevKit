@@ -33,4 +33,4 @@ if __name__ == '__main__':
     print("Average mAP unshown per class: ", results["a_mAP_per_class_unshown"])
 
 # python tools/EvaluateSpotting.py --Predictions_path EvalAI/submission/results_spotting/ --SoccerNet_path /media/giancos/Football/SoccerNet/ --Prediction_file Predictions-v2.json
-# python tools/EvaluateSpotting.py --Predictions_path EvalAI/submission/results_spotting.zip --SoccerNet_path EvalAI/annotations/test_annotations_spotting.zip --Prediction_file Predictions-v2.json
+# python Evaluation/EvaluateSpotting.py --Predictions_path /home/giancos/git/SoccerNetv2/EvalAI/submission/results_spotting_test.zip --SoccerNet_path /home/giancos/git/SoccerNetv2/EvalAI/annotations/test_annotations_spotting.zip --Prediction_file Predictions-v2.json

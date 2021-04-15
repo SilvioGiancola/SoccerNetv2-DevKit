@@ -185,9 +185,9 @@ if __name__ == "__main__":
     parser.add_argument('--transform', type=str, default="crop",
                         help="crop or resize? [default:crop]")
     parser.add_argument('--video', type=str, default="LQ",
-                        help="LQ or HQ? [default:HQ]")
+                        help="LQ or HQ? [default:LQ]")
     parser.add_argument('--grabber', type=str, default="opencv",
-                        help="skvideo or opencv? [default:skvideo]")
+                        help="skvideo or opencv? [default:opencv]")
     parser.add_argument('--tmp_HQ_videos', type=str, default=None,
                         help="enter pawssword to download and store temporally the videos [default:None]")
     parser.add_argument('--FPS', type=float, default=2.0,
