@@ -1,0 +1,69 @@
+2021-03-03 00:09:55,532 [MainThread  ] [INFO ]  Starting main function
+2021-03-03 00:09:55,532 [MainThread  ] [INFO ]  Parameters:
+2021-03-03 00:09:55,532 [MainThread  ] [INFO ]   SoccerNet_path : path/to/SoccerNet/
+2021-03-03 00:09:55,532 [MainThread  ] [INFO ]         features : ResNET_TF2.npy
+2021-03-03 00:09:55,533 [MainThread  ] [INFO ]       max_epochs : 1000
+2021-03-03 00:09:55,533 [MainThread  ] [INFO ]     load_weights : None
+2021-03-03 00:09:55,533 [MainThread  ] [INFO ]       model_name : NetVLAD++
+2021-03-03 00:09:55,533 [MainThread  ] [INFO ]        test_only : False
+2021-03-03 00:09:55,533 [MainThread  ] [INFO ]      split_train : ['train']
+2021-03-03 00:09:55,533 [MainThread  ] [INFO ]      split_valid : ['valid']
+2021-03-03 00:09:55,533 [MainThread  ] [INFO ]       split_test : ['test', 'challenge']
+2021-03-03 00:09:55,533 [MainThread  ] [INFO ]          version : 2
+2021-03-03 00:09:55,533 [MainThread  ] [INFO ]      feature_dim : None
+2021-03-03 00:09:55,533 [MainThread  ] [INFO ]  evaluation_frequency : 10
+2021-03-03 00:09:55,533 [MainThread  ] [INFO ]        framerate : 2
+2021-03-03 00:09:55,533 [MainThread  ] [INFO ]      window_size : 15
+2021-03-03 00:09:55,533 [MainThread  ] [INFO ]             pool : NetVLAD++
+2021-03-03 00:09:55,533 [MainThread  ] [INFO ]       vocab_size : 64
+2021-03-03 00:09:55,534 [MainThread  ] [INFO ]       NMS_window : 30
+2021-03-03 00:09:55,534 [MainThread  ] [INFO ]    NMS_threshold : 0.0
+2021-03-03 00:09:55,534 [MainThread  ] [INFO ]       batch_size : 256
+2021-03-03 00:09:55,534 [MainThread  ] [INFO ]               LR : 0.001
+2021-03-03 00:09:55,534 [MainThread  ] [INFO ]              LRe : 1e-06
+2021-03-03 00:09:55,534 [MainThread  ] [INFO ]         patience : 10
+2021-03-03 00:09:55,534 [MainThread  ] [INFO ]              GPU : -1
+2021-03-03 00:09:55,534 [MainThread  ] [INFO ]   max_num_worker : 4
+2021-03-03 00:09:55,534 [MainThread  ] [INFO ]             seed : 0
+2021-03-03 00:09:55,534 [MainThread  ] [INFO ]         loglevel : INFO
+2021-03-03 00:09:55,535 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-03 00:09:56,537 [MainThread  ] [INFO ]  Pre-compute clips
+2021-03-03 00:10:46,183 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-03 00:10:46,497 [MainThread  ] [INFO ]  Pre-compute clips
+2021-03-03 00:11:00,904 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-03 00:11:01,320 [MainThread  ] [INFO ]  Pre-compute clips
+2021-03-03 00:11:16,288 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-03 00:11:21,097 [MainThread  ] [INFO ]  Model(
+  (feature_extractor): Linear(in_features=2048, out_features=512, bias=True)
+  (pool_layer_before): NetVLAD()
+  (pool_layer_after): NetVLAD()
+  (fc): Linear(in_features=32768, out_features=18, bias=True)
+  (drop): Dropout(p=0.4, inplace=False)
+  (sigm): Sigmoid()
+)
+2021-03-03 00:11:21,097 [MainThread  ] [INFO ]  Total number of parameters: 1704466
+2021-03-03 00:11:21,098 [MainThread  ] [INFO ]  start training
+2021-03-03 00:17:10,861 [MainThread  ] [INFO ]  Validation performance at epoch 11 -> 0.4057295154637776
+2021-03-03 00:22:29,551 [MainThread  ] [INFO ]  Validation performance at epoch 21 -> 0.4223703281241362
+2021-03-03 00:26:34,645 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-03 00:27:48,898 [MainThread  ] [INFO ]  Validation performance at epoch 31 -> 0.4185818094874201
+2021-03-03 00:32:03,594 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-03 00:32:39,255 [MainThread  ] [INFO ]  Validation performance at epoch 41 -> 0.41399146959684535
+2021-03-03 00:37:39,670 [MainThread  ] [INFO ]  Validation performance at epoch 51 -> 0.41245965954039265
+2021-03-03 00:37:39,671 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-03 00:42:36,829 [MainThread  ] [INFO ]  Validation performance at epoch 61 -> 0.41230218972965854
+2021-03-03 00:43:03,830 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-03 00:47:20,154 [MainThread  ] [INFO ]  Validation performance at epoch 71 -> 0.4123121842447647
+2021-03-03 00:48:10,649 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-03 00:51:41,799 [MainThread  ] [INFO ]  Validation performance at epoch 81 -> 0.4123512375545924
+2021-03-03 00:52:32,641 [MainThread  ] [INFO ]  Plateau Reached and no more reduction -> Exiting Loop
+2021-03-03 00:52:32,837 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-03 01:00:06,841 [MainThread  ] [INFO ]  Best Performance at end of training 
+2021-03-03 01:00:06,841 [MainThread  ] [INFO ]  a_mAP visibility all: 0.5323524527674809
+2021-03-03 01:00:06,841 [MainThread  ] [INFO ]  a_mAP visibility all per class: [0.7909638871965351, 0.6119667518360374, 0.7282004878365417, 0.6909799388359087, 0.3769206703038018, 0.385058605043339, 0.40564896657237937, 0.5678109527934386, 0.7030053640084674, 0.6877153712315729, 0.6384020928006598, 0.44390659382804004, 0.5643967024176032, 0.7988357104007351, 0.5643684761897921, 0.031892578006570485, 0.05991854774575163]
+2021-03-03 01:00:06,841 [MainThread  ] [INFO ]  a_mAP visibility visible: 0.5924322017152269
+2021-03-03 01:00:06,841 [MainThread  ] [INFO ]  a_mAP visibility visible per class: [0.860939660136994, 0.7306172708969279, 0.7353028394028152, 0.7620018457633957, 0.402045907979049, 0.3867385736768755, 0.4085180692160984, 0.6933924183173991, 0.7056830886090585, 0.7211022691972404, 0.6457131435764556, 0.3960558941049264, 0.6513685320288511, 0.8058063352640278, 0.6077760109628578, 0.250889276269493, 0.30739629375639266]
+2021-03-03 01:00:06,841 [MainThread  ] [INFO ]  a_mAP visibility unshown: 0.3437804178729837
+2021-03-03 01:00:06,841 [MainThread  ] [INFO ]  a_mAP visibility unshown per class: [0.0, 0.5526991446416624, 0.0, 0.28667379700409074, 0.11450619155842472, 0.043706293706293704, 0.0035276476447245976, 0.4465343478019978, 0.6478236089467785, 0.6072404784743126, 0.3593254885146051, 0.5169745157157839, 0.03000277913328138, 0.7357710340242611, 0.12436010518257236, 0.0, 0.0]
+2021-03-03 01:00:06,842 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-03 01:03:44,962 [MainThread  ] [INFO ]  Total Execution Time is 3229.4294533729553 seconds

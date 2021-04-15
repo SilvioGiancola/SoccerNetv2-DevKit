@@ -1,0 +1,68 @@
+2021-03-03 03:45:51,134 [MainThread  ] [INFO ]  Starting main function
+2021-03-03 03:45:51,134 [MainThread  ] [INFO ]  Parameters:
+2021-03-03 03:45:51,134 [MainThread  ] [INFO ]   SoccerNet_path : path/to/SoccerNet/
+2021-03-03 03:45:51,134 [MainThread  ] [INFO ]         features : ResNET_TF2.npy
+2021-03-03 03:45:51,134 [MainThread  ] [INFO ]       max_epochs : 1000
+2021-03-03 03:45:51,134 [MainThread  ] [INFO ]     load_weights : None
+2021-03-03 03:45:51,134 [MainThread  ] [INFO ]       model_name : NetVLAD++_run_4
+2021-03-03 03:45:51,134 [MainThread  ] [INFO ]        test_only : False
+2021-03-03 03:45:51,135 [MainThread  ] [INFO ]      split_train : ['train']
+2021-03-03 03:45:51,135 [MainThread  ] [INFO ]      split_valid : ['valid']
+2021-03-03 03:45:51,135 [MainThread  ] [INFO ]       split_test : ['test', 'challenge']
+2021-03-03 03:45:51,135 [MainThread  ] [INFO ]          version : 2
+2021-03-03 03:45:51,135 [MainThread  ] [INFO ]      feature_dim : None
+2021-03-03 03:45:51,135 [MainThread  ] [INFO ]  evaluation_frequency : 10
+2021-03-03 03:45:51,135 [MainThread  ] [INFO ]        framerate : 2
+2021-03-03 03:45:51,135 [MainThread  ] [INFO ]      window_size : 15
+2021-03-03 03:45:51,135 [MainThread  ] [INFO ]             pool : NetVLAD++
+2021-03-03 03:45:51,135 [MainThread  ] [INFO ]       vocab_size : 64
+2021-03-03 03:45:51,135 [MainThread  ] [INFO ]       NMS_window : 30
+2021-03-03 03:45:51,135 [MainThread  ] [INFO ]    NMS_threshold : 0.0
+2021-03-03 03:45:51,135 [MainThread  ] [INFO ]       batch_size : 256
+2021-03-03 03:45:51,135 [MainThread  ] [INFO ]               LR : 0.001
+2021-03-03 03:45:51,136 [MainThread  ] [INFO ]              LRe : 1e-06
+2021-03-03 03:45:51,136 [MainThread  ] [INFO ]         patience : 10
+2021-03-03 03:45:51,136 [MainThread  ] [INFO ]              GPU : -1
+2021-03-03 03:45:51,136 [MainThread  ] [INFO ]   max_num_worker : 4
+2021-03-03 03:45:51,136 [MainThread  ] [INFO ]             seed : 4
+2021-03-03 03:45:51,136 [MainThread  ] [INFO ]         loglevel : INFO
+2021-03-03 03:45:51,137 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-03 03:45:52,392 [MainThread  ] [INFO ]  Pre-compute clips
+2021-03-03 03:46:43,242 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-03 03:46:43,571 [MainThread  ] [INFO ]  Pre-compute clips
+2021-03-03 03:47:07,575 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-03 03:47:07,979 [MainThread  ] [INFO ]  Pre-compute clips
+2021-03-03 03:47:23,716 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-03 03:47:28,340 [MainThread  ] [INFO ]  Model(
+  (feature_extractor): Linear(in_features=2048, out_features=512, bias=True)
+  (pool_layer_before): NetVLAD()
+  (pool_layer_after): NetVLAD()
+  (fc): Linear(in_features=32768, out_features=18, bias=True)
+  (drop): Dropout(p=0.4, inplace=False)
+  (sigm): Sigmoid()
+)
+2021-03-03 03:47:28,341 [MainThread  ] [INFO ]  Total number of parameters: 1704466
+2021-03-03 03:47:28,341 [MainThread  ] [INFO ]  start training
+2021-03-03 03:53:05,058 [MainThread  ] [INFO ]  Validation performance at epoch 11 -> 0.40949648947921036
+2021-03-03 03:58:08,677 [MainThread  ] [INFO ]  Validation performance at epoch 21 -> 0.42509487915445604
+2021-03-03 04:00:30,944 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-03 04:03:03,423 [MainThread  ] [INFO ]  Validation performance at epoch 31 -> 0.4212932857573912
+2021-03-03 04:06:04,825 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-03 04:08:12,593 [MainThread  ] [INFO ]  Validation performance at epoch 41 -> 0.4162076538416736
+2021-03-03 04:11:41,779 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-03 04:13:23,132 [MainThread  ] [INFO ]  Validation performance at epoch 51 -> 0.4157178325992735
+2021-03-03 04:17:26,442 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-03 04:18:39,368 [MainThread  ] [INFO ]  Validation performance at epoch 61 -> 0.4155602707007756
+2021-03-03 04:23:12,450 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-03 04:23:52,208 [MainThread  ] [INFO ]  Validation performance at epoch 71 -> 0.4156030705085219
+2021-03-03 04:28:13,864 [MainThread  ] [INFO ]  Plateau Reached and no more reduction -> Exiting Loop
+2021-03-03 04:28:13,891 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-03 04:35:10,720 [MainThread  ] [INFO ]  Best Performance at end of training 
+2021-03-03 04:35:10,720 [MainThread  ] [INFO ]  a_mAP visibility all: 0.5272053063365705
+2021-03-03 04:35:10,720 [MainThread  ] [INFO ]  a_mAP visibility all per class: [0.7831222795805962, 0.6071574098278176, 0.7034413836503696, 0.6869282453645421, 0.3665105695412935, 0.3697112891827774, 0.3942169624564741, 0.562113184197115, 0.6988540713744684, 0.6904454931196696, 0.6297641585323005, 0.4544830740904902, 0.5787741777163831, 0.7951356748916403, 0.5512724269164907, 0.03510144791931826, 0.05545835935995141]
+2021-03-03 04:35:10,720 [MainThread  ] [INFO ]  a_mAP visibility visible: 0.5865667556859674
+2021-03-03 04:35:10,721 [MainThread  ] [INFO ]  a_mAP visibility visible per class: [0.8576249226967376, 0.7403702967428151, 0.7137931651758619, 0.7503525711254226, 0.39123916892902133, 0.37177196635893306, 0.396506759157056, 0.6639071055386058, 0.7028645595921029, 0.7228463949201617, 0.6348237485845216, 0.40964552945711075, 0.6617233346839427, 0.8018318569036627, 0.5968350626146727, 0.2904615020977338, 0.2650369020830827]
+2021-03-03 04:35:10,721 [MainThread  ] [INFO ]  a_mAP visibility unshown: 0.3523593463760222
+2021-03-03 04:35:10,721 [MainThread  ] [INFO ]  a_mAP visibility unshown per class: [0.0, 0.5396186672036047, 0.0, 0.34400559320284185, 0.11260907790284984, 0.04803891760413499, 0.0025859238793955086, 0.4581192743798111, 0.6462750193666158, 0.6077542760861906, 0.3966202875765202, 0.5299582027415678, 0.031382825674990025, 0.731984052114142, 0.1317193851556229, 0.0, 0.0]
+2021-03-03 04:35:10,721 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-03 04:38:39,326 [MainThread  ] [INFO ]  Total Execution Time is 3168.192577600479 seconds

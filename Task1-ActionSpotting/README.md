@@ -2,6 +2,10 @@
 
 This folder contains the different baselines for the action spotting task on SoccerNet-V2.
 
+### [Temporally Aware Pooling](TemporallyAwarePooling): NetVLAD++
+
+This is the code for the paper [Temporally-Aware Feature Pooling for Action Spotting in Video Broadcasts](https://arxiv.org/pdf/2104.06779.pdf) (CVSports2021), that introduces the baseline NetVLAD++, among other temporally-aware feature pooling modules.
+
 ### [CALF](CALF): A Context-Aware Loss Function for Action Spotting in Soccer Videos 
 
 a custom loss function is used to explicitly model the temporal context around action spots. The main idea behind this loss is to penalize the frames far-distant from the action and steadily decrease the penalty for the frames gradually closer to the action. The frames just before the action are not penalized to avoid providing misleading information as its occurrence is uncertain. However, those just after the action are heavily penalized as we know for sure that the action has occurred.
