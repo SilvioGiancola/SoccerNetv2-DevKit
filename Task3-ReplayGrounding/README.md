@@ -45,7 +45,7 @@ pip install SoccerNet
 - SoccerNetv2-ReplayGrounding-CALF_more_negative [[Link]](SoccerNetv2-ReplayGrounding-CALF_more_negative)
 - SoccerNetv2-ReplayGrounding-NetVLAD-More-Negative [[Link]](SoccerNetv2-ReplayGrounding-NetVLAD-More-Negative)
 
-### Evluation on challnge set
+### Evluation on challenge set
 Since Replay grounding task is retrieving the timestamp of the action shown in a given replay shot within the whole game, we need to know the start and end points of each replay. Hence, we provided auxiliary annotations for challenge set to address this issue. You can download it using this [[Link]](replay_labels_challenge.zip)  and unzip the file in the same directory that you have other labels and features    
 ## Authors
 
