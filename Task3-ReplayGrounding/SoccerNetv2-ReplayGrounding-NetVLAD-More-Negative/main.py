@@ -33,6 +33,9 @@ def main(args):
         dataset_Valid = SoccerNetReplayClips(path=args.SoccerNet_path, features=args.features, split="valid", framerate=args.framerate, chunk_size=args.chunk_size*args.framerate, receptive_field=args.receptive_field*args.framerate, chunks_per_epoch=args.chunks_per_epoch,  replay_size=args.replay_size, hard_negative_weight=args.hard_negative_weight, random_negative_weight=args.random_negative_weight, replay_negative_weight=args.replay_negative_weight, loop=args.loop)
         dataset_Valid_metric  = SoccerNetReplayClipsTesting(path=args.SoccerNet_path, features=args.features, split="valid", framerate=args.framerate, chunk_size=args.chunk_size*args.framerate, receptive_field=args.receptive_field*args.framerate, replay_size=args.replay_size)
     dataset_Test  = SoccerNetReplayClipsTesting(path=args.SoccerNet_path, features=args.features, split="test", framerate=args.framerate, chunk_size=args.chunk_size*args.framerate, receptive_field=args.receptive_field*args.framerate, replay_size=args.replay_size)
+   
+    if  args.challenge:
+        dataset_challenge  = SoccerNetReplayClipsTesting(path=args.SoccerNet_path, features=args.features, split="challenge", framerate=args.framerate, chunk_size=args.chunk_size*args.framerate, receptive_field=args.receptive_field*args.framerate)
 
 
     # create model  
@@ -60,6 +63,10 @@ def main(args):
         batch_size=1, shuffle=False,
         num_workers=1, pin_memory=True)
 
+    if  args.challenge:
+        challenge_loader  = torch.utils.data.DataLoader(dataset_challenge,
+        batch_size=1, shuffle=False,
+        num_workers=1, pin_memory=True)
     # training parameters
     if not args.test_only:
         
@@ -82,9 +89,13 @@ def main(args):
     checkpoint = torch.load(s.path.join("models", args.model_name, "model.pth.tar"))
     model.load_state_dict(checkpoint['state_dict'])
 
-    average_mAP = test(test_loader, model=model, model_name=args.model_name,split='test',annotation_path=args.SoccerNet_path,detection_path=args.detection_path,save_results=args.save_results)
-    logging.info("Best Performance at end of training " + str(average_mAP))
-    return average_mAP
+    if  args.challenge:
+        average_AP = test(challenge_loader, model=model, model_name=args.model_name,split='challenge',annotation_path=args.SoccerNet_path,detection_path=args.detection_path,save_results=args.save_results)
+        logging.info("Best Performance for challenge set at end of training " + str(average_AP))
+    if  not args.challenge:
+        average_AP = test(test_loader, model=model, model_name=args.model_name,split='test',annotation_path=args.SoccerNet_path,detection_path=args.detection_path,save_results=args.save_results)
+        logging.info("Best Performance at end of training " + str(average_AP))
+    return average_AP
 
 
 if __name__ == '__main__':
@@ -100,6 +111,7 @@ if __name__ == '__main__':
     parser.add_argument('--load_weights',   required=False, type=str,   default=None,     help='weights to load' )
     parser.add_argument('--model_name',   required=False, type=str,   default="CALF",     help='named of the model to save' )
     parser.add_argument('--test_only',   required=False, action='store_true',  help='Perform testing only' )
+    parser.add_argument('--challenge',   required=False, action='store_true',  help='including challenge set' )
     # parser.add_argument('--feature', dest='feature', action='store_true')
 
     parser.add_argument('--loop', required=False, type=int,   default=1,     help='Number of negative samples for each replay' )
