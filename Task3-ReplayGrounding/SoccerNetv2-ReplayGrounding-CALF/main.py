@@ -89,12 +89,12 @@ def main(args):
     model.load_state_dict(checkpoint['state_dict'])
 
     if  args.challenge:
-        average_mAP = test(challenge_loader, model=model, model_name=args.model_name,split='challenge',annotation_path=args.SoccerNet_path,detection_path=args.detection_path,save_results=args.save_results)
+        average_AP = test(challenge_loader, model=model, model_name=args.model_name,split='challenge',annotation_path=args.SoccerNet_path,detection_path=args.detection_path,save_results=args.save_results)
         logging.info("Best Performance for challenge set at end of training " + str(average_AP))
     if  not args.challenge:
-        average_mAP = test(test_loader, model=model, model_name=args.model_name,split='test',annotation_path=args.SoccerNet_path,detection_path=args.detection_path,save_results=args.save_results)
+        average_AP = test(test_loader, model=model, model_name=args.model_name,split='test',annotation_path=args.SoccerNet_path,detection_path=args.detection_path,save_results=args.save_results)
         logging.info("Best Performance at end of training " + str(average_AP))
-    return average_mAP
+    return average_AP
 
 
 if __name__ == '__main__':
