@@ -266,6 +266,8 @@ class SoccerNetReplayClipsTesting(Dataset):
         self.num_action_classes = 17
         self.labels_actions="Labels-v2.json"
         self.labels_replays="Labels-cameras.json"
+        if split=="challenge":
+            self.labels_replays="Labels-replays.json"
         self.framerate = framerate
 
         #logging.info("Checking/Download features and labels locally")
@@ -311,19 +313,24 @@ class SoccerNetReplayClipsTesting(Dataset):
                 previous_timestamp = frame
                 continue
 
-            event = annotation["link"]["label"]
-
-            if not event in self.dict_event or int(annotation["link"]["half"])!=half:
-                previous_timestamp = frame
-                continue
-
             if previous_timestamp == frame:
                 previous_timestamp = frame
-                continue     
-            time_event = annotation["link"]["time"]
-            minutes_event = int(time_event[0:2])
-            seconds_event = int(time_event[3:])
-            frame_event = self.framerate * ( seconds_event + 60 * minutes_event ) 
+                continue
+            if split=="challenge":
+                event="Replay"
+                frame_event=0
+            else:
+                event = annotation["link"]["label"]
+                if not event in self.dict_event or int(annotation["link"]["half"])!=half:
+                    previous_timestamp = frame
+                    continue
+
+                     
+                time_event = annotation["link"]["time"]
+                minutes_event = int(time_event[0:2])
+                seconds_event = int(time_event[3:])
+                frame_event = self.framerate * ( seconds_event + 60 * minutes_event ) 
+
 
             label = self.dict_event[event]
             if half == 1:
