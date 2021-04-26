@@ -112,14 +112,16 @@ python src/main.py --SoccerNet_path=/path/to/SoccerNet/ \
  --save_results True
 ```
 
-<!-- For producing the results of the challenge, simply use the --challenge parameter. Of course, the performance won't be computed localy since you don't have access to the labels. Upload the predictions saved in the <code>outputs</code> folder on [EvalAI](https://eval.ai/web/challenges/challenge-page/761/overview) to get your challenge performance.
+For producing the results of the challenge, simply use the --challenge parameter. Of course, the performance won't be computed localy since you don't have access to the labels. Upload the predictions saved in the <code>outputs</code> folder on [EvalAI](https://eval.ai/web/challenges/challenge-page/761/overview) to get your challenge performance.
 
 ```bash
 python src/main.py --SoccerNet_path=/path/to/SoccerNet/ \
 --features=ResNET_TF2_PCA512.npy \
 --num_features=512 \
 --challenge
---model_name=CALF_v2 \
+--model_name=NetVLAD_more_negative_trained \
 --test_only
-``` -->
+--detection_path '/outputs/' \
+--save_results True
+``` 
 
