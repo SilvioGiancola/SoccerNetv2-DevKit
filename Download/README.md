@@ -44,6 +44,7 @@ mySoccerNetDownloader.downloadGames(files=["1_HQ.mkv", "2_HQ.mkv", "video.ini"],
 - **Labels-v2.json**: Labels from SoccerNet-v2 - action spotting
 - **Labels-cameras.json**: Labels from SoccerNet-v1 - camera shot segmentation
 - **Labels.json**: Labels from SoccerNet-v1 - action spotting for goals/cards/subs only
+- **Labels-replays.json** Labels from SoccerNet-v2 - replay grounding (Dpwnload [Challenge set](https://github.com/SilvioGiancola/SoccerNetv2-DevKit/blob/main/Task3-ReplayGrounding/replay_labels_challenge.zip)
 
 ## Pre-extracted Features
 
