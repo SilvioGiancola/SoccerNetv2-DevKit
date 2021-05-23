@@ -14,7 +14,8 @@ The dataset consists of 500 complete soccer games including:
  - Annotations of camera replays linked to actions (Labels-cameras.json).
  - Annotations of camera changes and camera types for 200 games (Labels-cameras.json).
 
-Participate in our upcoming Challenge at CVPR 2021 and try to win up to 1000$ sponsored by [Second Spectrum](https://www.secondspectrum.com/index.html)! All details can be found on the [challenge website](https://eval.ai/web/challenges/challenge-page/761/overview), or on the [main page](https://soccer-net.org/).
+
+Participate in our upcoming Challenge in the [CVPR 2021 International Challenge on Activity Recognition Workshop](http://activity-net.org/challenges/2021/index.html) and try to win up to 1000$ sponsored by [Second Spectrum](https://www.secondspectrum.com/index.html)! All details can be found on the [challenge website](https://eval.ai/web/challenges/challenge-page/761/overview), or on the [main page](https://soccer-net.org/).
 
 The participation deadline is fixed at the 30th of May 2021.
 The official rules and guidelines are available on [ChallengeRules.md](ChallengeRules.md).
