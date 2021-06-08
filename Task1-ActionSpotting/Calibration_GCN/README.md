@@ -60,9 +60,3 @@ python src/main.py \
 ```
 for i in {0..9}; do sbatch -J ASpM2VrGCN ibex.sh --model_name=calib_GCN_run_${i}  --backbone_feature=2DConv --backbone_player=resGCN-14 --dist_graph_player=25 --calibration --feature_multiplier 2 --class_split visual; done
 ```
-
-Read the results 
-
-```
-tail models/calib_GCN_run_*/*.log | grep mAP:
-```
