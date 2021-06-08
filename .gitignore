@@ -134,3 +134,6 @@ dmypy.json
 Task1-ActionSpotting/Pooling/models/*/outputs*/*
 Task1-ActionSpotting/Pooling/models/*/*.log
 Task1-ActionSpotting/Pooling/models_OLD
+
+Task1-ActionSpotting/Calibration_GCN/log/
+Task1-ActionSpotting/Calibration_GCN/models/
