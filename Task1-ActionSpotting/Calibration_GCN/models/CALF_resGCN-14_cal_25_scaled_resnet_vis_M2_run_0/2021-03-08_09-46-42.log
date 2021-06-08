@@ -1,0 +1,130 @@
+2021-03-08 09:46:42,994 [MainThread  ] [INFO ]  Starting main function
+2021-03-08 09:46:42,994 [MainThread  ] [INFO ]  Parameters:
+2021-03-08 09:46:42,994 [MainThread  ] [INFO ]   SoccerNet_path : /ibex/scratch/giancos/SoccerNet_calibration/
+2021-03-08 09:46:42,994 [MainThread  ] [INFO ]         features : ResNET_TF2_PCA512.npy
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]       max_epochs : 1000
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]     load_weights : None
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]       model_name : CALF_resGCN-14_cal_25_scaled_resnet_vis_M2_run_0
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]             mode : 0
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]        test_only : False
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]        challenge : False
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]             tiny : None
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]      class_split : visual
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]         K_params : None
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]     num_features : 512
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]  chunks_per_epoch : 18000
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]  evaluation_frequency : 20
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]      dim_capsule : 16
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]        framerate : 2
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]       chunk_size : 120
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]  receptive_field : 40
+2021-03-08 09:46:42,995 [MainThread  ] [INFO ]     lambda_coord : 5.0
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]     lambda_noobj : 0.5
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]  loss_weight_segmentation : 0.000367
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]  loss_weight_detection : 1.0
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]   num_detections : 15
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]  feature_multiplier : 2
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]  backbone_player : resGCN-14
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]  backbone_feature : 2DConv
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]      calibration : True
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]  calibration_field : False
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]  calibration_cone : False
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]  calibration_confidence : False
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]  dim_representation_w : 64
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]  dim_representation_h : 32
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]  dim_representation_c : 3
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]  dim_representation_player : 2
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]  dist_graph_player : 25
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]     with_dropout : 0.0
+2021-03-08 09:46:42,996 [MainThread  ] [INFO ]       batch_size : 32
+2021-03-08 09:46:42,997 [MainThread  ] [INFO ]               LR : 0.001
+2021-03-08 09:46:42,997 [MainThread  ] [INFO ]         patience : 25
+2021-03-08 09:46:42,997 [MainThread  ] [INFO ]              GPU : -1
+2021-03-08 09:46:42,997 [MainThread  ] [INFO ]   max_num_worker : 4
+2021-03-08 09:46:42,997 [MainThread  ] [INFO ]         loglevel : INFO
+2021-03-08 09:46:43,536 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-08 09:46:51,949 [MainThread  ] [INFO ]  Pre-compute clips
+2021-03-08 10:22:05,270 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-08 10:22:07,785 [MainThread  ] [INFO ]  Pre-compute clips
+2021-03-08 10:33:29,909 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-08 10:33:32,386 [MainThread  ] [INFO ]  Checking/Download features and labels locally
+2021-03-08 10:33:34,894 [MainThread  ] [INFO ]  ContextAwareModel(
+  (conv_1): Conv2d(1, 128, kernel_size=(1, 512), stride=(1, 1))
+  (conv_2): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1))
+  (pad_p_1): ZeroPad2d(padding=(0, 0, 5, 6), value=0.0)
+  (pad_p_2): ZeroPad2d(padding=(0, 0, 13, 13), value=0.0)
+  (pad_p_3): ZeroPad2d(padding=(0, 0, 19, 20), value=0.0)
+  (pad_p_4): ZeroPad2d(padding=(0, 0, 39, 40), value=0.0)
+  (conv_p_1): Conv2d(32, 8, kernel_size=(12, 1), stride=(1, 1))
+  (conv_p_2): Conv2d(32, 16, kernel_size=(27, 1), stride=(1, 1))
+  (conv_p_3): Conv2d(32, 32, kernel_size=(40, 1), stride=(1, 1))
+  (conv_p_4): Conv2d(32, 64, kernel_size=(80, 1), stride=(1, 1))
+  (node_encoder): Linear(in_features=8, out_features=64, bias=True)
+  (edge_encoder): Linear(in_features=8, out_features=64, bias=True)
+  (layers): ModuleList(
+    (0): DeepGCNLayer(block=res)
+    (1): DeepGCNLayer(block=res)
+    (2): DeepGCNLayer(block=res)
+    (3): DeepGCNLayer(block=res)
+    (4): DeepGCNLayer(block=res)
+    (5): DeepGCNLayer(block=res)
+    (6): DeepGCNLayer(block=res)
+    (7): DeepGCNLayer(block=res)
+    (8): DeepGCNLayer(block=res)
+    (9): DeepGCNLayer(block=res)
+    (10): DeepGCNLayer(block=res)
+    (11): DeepGCNLayer(block=res)
+    (12): DeepGCNLayer(block=res)
+    (13): DeepGCNLayer(block=res)
+  )
+  (lin): Linear(in_features=64, out_features=152, bias=True)
+  (pad_seg): ZeroPad2d(padding=(0, 0, 1, 1), value=0.0)
+  (conv_seg): Conv2d(304, 128, kernel_size=(3, 1), stride=(1, 1))
+  (batch_seg): BatchNorm2d(240, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+  (max_pool_spot): MaxPool2d(kernel_size=(3, 1), stride=(2, 1), padding=0, dilation=1, ceil_mode=False)
+  (pad_spot_1): ZeroPad2d(padding=(0, 0, 1, 1), value=0.0)
+  (conv_spot_1): Conv2d(136, 32, kernel_size=(3, 1), stride=(1, 1))
+  (max_pool_spot_1): MaxPool2d(kernel_size=(3, 1), stride=(2, 1), padding=0, dilation=1, ceil_mode=False)
+  (pad_spot_2): ZeroPad2d(padding=(0, 0, 1, 1), value=0.0)
+  (conv_spot_2): Conv2d(32, 16, kernel_size=(3, 1), stride=(1, 1))
+  (max_pool_spot_2): MaxPool2d(kernel_size=(3, 1), stride=(2, 1), padding=0, dilation=1, ceil_mode=False)
+  (conv_conf): Conv2d(464, 30, kernel_size=(1, 1), stride=(1, 1))
+  (conv_class): Conv2d(464, 120, kernel_size=(1, 1), stride=(1, 1))
+  (softmax): Softmax(dim=-1)
+)
+2021-03-08 10:33:34,896 [MainThread  ] [INFO ]  Total number of parameters: 741828
+2021-03-08 10:33:34,896 [MainThread  ] [INFO ]  start training
+2021-03-08 13:00:39,000 [MainThread  ] [INFO ]  Validation performance at epoch 21 -> 0.2514328884201303
+2021-03-08 13:12:38,551 [MainThread  ] [INFO ]  Test performance at epoch 21 -> 0.26282903949687275
+2021-03-08 15:32:54,978 [MainThread  ] [INFO ]  Validation performance at epoch 41 -> 0.2903661774744646
+2021-03-08 15:45:20,185 [MainThread  ] [INFO ]  Test performance at epoch 41 -> 0.2922543251712015
+2021-03-08 18:05:47,138 [MainThread  ] [INFO ]  Validation performance at epoch 61 -> 0.29726966277714345
+2021-03-08 18:18:15,016 [MainThread  ] [INFO ]  Test performance at epoch 61 -> 0.29568402363763835
+2021-03-08 20:38:57,433 [MainThread  ] [INFO ]  Validation performance at epoch 81 -> 0.32843936638766985
+2021-03-08 20:51:06,946 [MainThread  ] [INFO ]  Test performance at epoch 81 -> 0.3222020171977212
+2021-03-08 23:10:52,197 [MainThread  ] [INFO ]  Validation performance at epoch 101 -> 0.3517070502961962
+2021-03-08 23:22:45,189 [MainThread  ] [INFO ]  Test performance at epoch 101 -> 0.36935975958341183
+2021-03-09 01:41:59,251 [MainThread  ] [INFO ]  Validation performance at epoch 121 -> 0.37149761102719003
+2021-03-09 01:53:51,905 [MainThread  ] [INFO ]  Test performance at epoch 121 -> 0.35909028992042946
+2021-03-09 03:35:57,387 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-09 04:13:31,495 [MainThread  ] [INFO ]  Validation performance at epoch 141 -> 0.4226586973598674
+2021-03-09 04:25:09,354 [MainThread  ] [INFO ]  Test performance at epoch 141 -> 0.37690996051158354
+2021-03-09 06:44:34,421 [MainThread  ] [INFO ]  Validation performance at epoch 161 -> 0.40282024876906497
+2021-03-09 06:57:21,588 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-09 09:04:19,922 [MainThread  ] [INFO ]  Validation performance at epoch 181 -> 0.4028564005982603
+2021-03-09 09:55:45,194 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-09 11:24:24,591 [MainThread  ] [INFO ]  Validation performance at epoch 201 -> 0.4020276170278714
+2021-03-09 12:53:37,367 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-09 13:44:19,494 [MainThread  ] [INFO ]  Validation performance at epoch 221 -> 0.4031414771922883
+2021-03-09 16:05:08,855 [MainThread  ] [INFO ]  Validation performance at epoch 241 -> 0.4015646308225717
+2021-03-09 16:05:08,856 [MainThread  ] [INFO ]  Plateau Reached!
+2021-03-09 18:26:31,639 [MainThread  ] [INFO ]  Validation performance at epoch 261 -> 0.4010389624536587
+2021-03-09 18:58:37,534 [MainThread  ] [INFO ]  Plateau Reached and no more reduction -> Exiting Loop
+2021-03-09 19:10:55,993 [MainThread  ] [INFO ]  Best performance at end of training 
+2021-03-09 19:10:55,994 [MainThread  ] [INFO ]  Average mAP: 0.37690996051158354
+2021-03-09 19:10:55,994 [MainThread  ] [INFO ]  Average mAP visible: 0.4002927216193302
+2021-03-09 19:10:55,994 [MainThread  ] [INFO ]  Average mAP unshown: 0.2598112871066458
+2021-03-09 19:10:55,994 [MainThread  ] [INFO ]  Average mAP per class: [0.4529649772588151, 0.31091784101709513, 0.5594593985123328, 0.5011718656099995, 0.7422365227967962, 0.4485290788976295, 0.0, 0.0]
+2021-03-09 19:10:55,994 [MainThread  ] [INFO ]  Average mAP visible per class: [0.5181001162687864, 0.27709335407101415, 0.5890691853161654, 0.5718291335703272, 0.754048992452249, 0.4922009912760994, 0.0, 0.0]
+2021-03-09 19:10:55,994 [MainThread  ] [INFO ]  Average mAP unshown per class: [0.0, 0.3342000854146648, 0.4828839062435629, 0.01833441878290478, 0.6730733422955745, 0.08094200368042027, 0.0, 0.0]
+2021-03-09 19:10:55,997 [MainThread  ] [INFO ]  Total Execution Time is 120253.00358772278 seconds
