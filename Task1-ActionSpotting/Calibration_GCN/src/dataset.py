@@ -60,13 +60,13 @@ class SoccerNetClips(Dataset):
         self.split=split
 
         # Bounding boxes  
-        self.bbox_predictions = "HQ_25_player_bbox.json"
+        self.bbox_predictions = "player_boundingbox_maskrcnn.json"
         self.representation_width = args.dim_representation_w
         self.representation_height = args.dim_representation_h
         self.representation_channel = args.dim_representation_c
 
         # Calibration 
-        self.calibration_predictions = "HQ_25calibration.json"
+        self.calibration_predictions = "field_calibration_ccbv.json"
         self.calibration_threshold = 0.75
         if self.args.teacher:
             self.calibration_predictions = "HQ_25_teacher_calibration.json"
@@ -583,13 +583,13 @@ class SoccerNetClipsTesting(Dataset):
         self.split=split
 
         # Bounding boxes  
-        self.bbox_predictions = "HQ_25_player_bbox.json"
+        self.bbox_predictions = "player_boundingbox_maskrcnn.json"
         self.representation_width = args.dim_representation_w
         self.representation_height = args.dim_representation_h
         self.representation_channel = args.dim_representation_c
 
         # Calibration 
-        self.calibration_predictions = "HQ_25calibration.json"
+        self.calibration_predictions = "field_calibration_ccbv.json"
         self.calibration_threshold = 0.75
         if self.args.teacher:
             self.calibration_predictions = "HQ_25_teacher_calibration.json"
