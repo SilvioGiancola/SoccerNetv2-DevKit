@@ -1,0 +1,41 @@
+Copyright (c) 2020 holders: 
+
+- University of Liège (ULiège), Belgium.
+- King Abdullah University of Science and Technology (KAUST), Saudi Arabia.
+- Marc Van Droogenbroeck (M.VanDroogenbroeck@uliege.be), Professor at the University of Liège (ULiège).
+
+
+Code Contributing Authors: 
+
+- Anthony Cioppa (anthony.cioppa@uliege.be), University of Liège (ULiège), Montefiore Institute, TELIM.
+- Adrien Deliège (adrien.deliege@uliege.be), University of Liège (ULiège), Montefiore Institute, TELIM.
+- Floriane Magera (floriane.magera@uliege.be), EVS Broadcast equipment (EVS).
+- Silvio Giancola (silvio.giancola@kaust.edu.sa), King Abdullah University of Science and Technology (KAUST), Image and Video Understanding Laboratory (IVUL), part of the Visual Computing Center (VCC).
+
+
+Special thanks for their supervision to:
+
+- Olivier Barnich, EVS Broadcast equipment.
+- Bernard Ghanem, King Abdullah University of Science and Technology (KAUST).
+- Marc Van Droogenbroeck, University of Liège (ULiège).
+
+
+To cite this repository, use the following bibtex entries:
+
+@InProceedings{Cioppa2021Camera,
+  author = { Cioppa, Anthony and Deliège, Adrien and Magera, Floriane and Giancola, Silvio and Barnich, Olivier and Ghanem, Bernard and Van Droogenbroeck, Marc},
+  title = {Camera Calibration and Player Localization in SoccerNet-v2 and Investigation of their Representations for Action Spotting},
+  booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+  month = {June},
+  year = {2021}
+}
+
+```bibtex
+@InProceedings{Cioppa2020Context,
+  author = {Cioppa, Anthony and Deliège, Adrien and Giancola, Silvio and Ghanem, Bernard and Van Droogenbroeck, Marc and Gade, Rikke and Moeslund, Thomas B.},
+  title = {A Context-Aware Loss Function for Action Spotting in Soccer Videos},
+  booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  month = {June},
+  year = {2020}
+}
+```
