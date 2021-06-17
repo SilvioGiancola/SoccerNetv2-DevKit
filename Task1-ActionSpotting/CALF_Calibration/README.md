@@ -91,7 +91,7 @@ Please find the complete list of arguments in the <code>src/main.py</code> file
 
 The weights of the network will be saved in the <code>models/model_name/</code> folder alongside a log file tracing the training parameters and the evaluation of the performances. 
 
-Note that you might experience a higher variance in the final perfromances than with the original CALF method.
+Note that you might experience a higher variance in the final performances than with the original CALF method.
 
 ## Authors
 
