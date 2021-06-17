@@ -1,0 +1,24 @@
+Copyright (c) 2021 holders: 
+
+- King Abdullah University of Science and Technology (KAUST), Saudi Arabia.
+
+
+Code Contributing Authors: 
+
+- Silvio Giancola (silvio.giancola@kaust.edu.sa), King Abdullah University of Science and Technology (KAUST), Image and Video Understanding Laboratory (IVUL), part of the Visual Computing Center (VCC).
+
+
+Special thanks for their supervision to:
+
+- Bernard Ghanem, King Abdullah University of Science and Technology (KAUST).
+
+
+To cite this repository, use the following bibtex entries:
+
+@InProceedings{Giancola_2021_CVPR_Workshops,
+  author = {Giancola, Silvio and Ghanem, Bernard},
+  title = {Temporally-Aware Feature Pooling for Action Spotting in Video Broadcasts},
+  booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+  month = {June},
+  year = {2021}
+}

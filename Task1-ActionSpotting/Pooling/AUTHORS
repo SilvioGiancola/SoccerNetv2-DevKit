@@ -1,0 +1,28 @@
+Copyright (c) 2020 holders: 
+
+Code Contributing Authors: 
+
+- Anthony Cioppa (anthony.cioppa@uliege.be), University of Liège (ULiège), Montefiore Institute, TELIM.
+- Adrien Deliège (adrien.deliege@uliege.be), University of Liège (ULiège), Montefiore Institute, TELIM.
+- Silvio Giancola (silvio.giancola@kaust.edu.sa), King Abdullah University of Science and Technology (KAUST), Image and Video Understanding Laboratory (IVUL), part of the Visual Computing Center (VCC).
+- Meisam J. Seikavandi (meisamjam@gmail.com), Aalborg University (AAU), Visual Analysis of People Laboratory (VAP).
+- Jacob V. Dueholm (jvdu@create.aau.dk), Aalborg University (AAU), Visual Analysis of People Laboratory (VAP).
+
+
+Special thanks for their supervision to:
+
+- Kamal Nasrollahi, Milestone Systems.
+- Bernard Ghanem, King Abdullah University of Science and Technology (KAUST).
+- Thomas B. Moeslund, Aalborg University (AAU).
+- Marc Van Droogenbroeck, University of Liège (ULiège).
+
+
+To cite this repository, use the following bibtex entries:
+
+@InProceedings{Giancola_2018_CVPR_Workshops,
+  author = {Giancola, Silvio and Amine, Mohieddine and Dghaily, Tarek and Ghanem, Bernard},
+  title = {SoccerNet: A Scalable Dataset for Action Spotting in Soccer Videos},
+  booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+  month = {June},
+  year = {2018}
+}
