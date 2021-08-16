@@ -3,7 +3,7 @@
 This folder contains the different baselines for the action spotting task on SoccerNet-V2.
 
 
-| model     | Avg-mAP  | paper       | code |
+| Model     | Avg-mAP (test)  | Paper       | Code |
 | ----------| -------- | ------------------------- | ---   |
 | [MaxPool](#pool-netvlad-and-maxpool)   |   18.6   | [SoccerNet: A Scalable Dataset for Action Spotting in Soccer Videos](http://openaccess.thecvf.com/content_cvpr_2018_workshops/papers/w34/Giancola_SoccerNet_A_Scalable_CVPR_2018_paper.pdf) | [Pool](Pool) |
 | [NetVLAD](#pool-netvlad-and-maxpool)   |   31.4   | [SoccerNet: A Scalable Dataset for Action Spotting in Soccer Videos](http://openaccess.thecvf.com/content_cvpr_2018_workshops/papers/w34/Giancola_SoccerNet_A_Scalable_CVPR_2018_paper.pdf) | [Pool](Pool) |
