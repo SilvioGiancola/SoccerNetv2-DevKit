@@ -4,7 +4,7 @@ This folder contains the different baselines for the action spotting task on Soc
 
 ### Leaderboard
 
-This table summarize the performances of the published paper on SoccerNetv2 on August 2021. For a more updated leaderboard, please visit EvalAI [test](https://eval.ai/web/challenges/challenge-page/761/leaderboard/2072) and [challenge](https://eval.ai/web/challenges/challenge-page/761/leaderboard/2074) leaderboards.
+This table summarizes the performances of the published papers on SoccerNetv2 until August 2021. For a more updated leaderboard, please visit EvalAI [test](https://eval.ai/web/challenges/challenge-page/761/leaderboard/2072) and [challenge](https://eval.ai/web/challenges/challenge-page/761/leaderboard/2074) leaderboards.
 
 | Model     | Avg-mAP (test)  | Paper       | Code |
 | ----------| -------- | ------------------------- | ---   |
