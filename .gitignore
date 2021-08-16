@@ -135,7 +135,7 @@ Task1-ActionSpotting/Pooling/models/*/outputs*/*
 Task1-ActionSpotting/Pooling/models/*/*.log
 Task1-ActionSpotting/Pooling/models_OLD
 
-Task1-ActionSpotting/Calibration_GCN/log/
-Task1-ActionSpotting/Calibration_GCN/models/
-Task1-ActionSpotting/Calibration_GCN/dcgm/
-Task1-ActionSpotting/Calibration_GCN/outputs/
+Task1-ActionSpotting/CALF_Calibration_GCN/log/
+Task1-ActionSpotting/CALF_Calibration_GCN/models/
+Task1-ActionSpotting/CALF_Calibration_GCN/dcgm/
+Task1-ActionSpotting/CALF_Calibration_GCN/outputs/
