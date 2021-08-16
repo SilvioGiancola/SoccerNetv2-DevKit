@@ -66,7 +66,7 @@ class SoccerNetClips(Dataset):
         self.representation_channel = args.dim_representation_c
 
         # Calibration 
-        self.calibration_predictions = "field_calibration_ccbv.json"
+        self.calibration_predictions = "field_calib_ccbv.json"
         self.calibration_threshold = 0.75
         if self.args.teacher:
             self.calibration_predictions = "HQ_25_teacher_calibration.json"
@@ -589,7 +589,7 @@ class SoccerNetClipsTesting(Dataset):
         self.representation_channel = args.dim_representation_c
 
         # Calibration 
-        self.calibration_predictions = "field_calibration_ccbv.json"
+        self.calibration_predictions = "field_calib_ccbv.json"
         self.calibration_threshold = 0.75
         if self.args.teacher:
             self.calibration_predictions = "HQ_25_teacher_calibration.json"
