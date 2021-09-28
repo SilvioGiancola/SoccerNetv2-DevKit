@@ -93,6 +93,33 @@ The weights of the network will be saved in the <code>models/model_name/</code> 
 
 Note that you might experience a higher variance in the final performances than with the original CALF method.
 
+### Using our pre-trained weights
+
+To reproduce our results, we provide two models trained respectively on the visual and non-visual classes (see paper for details).
+
+You can run the inference on the visual classes using:
+
+```bash
+python src/main.py --SoccerNet_path=/path/to/SoccerNet/ --features=ResNET_TF2_PCA512.npy --num_features=512 --model_name=Calib_Best_VIS --batch_size 32 --backbone_player=3DConv --calibration --calibration_field --calibration_cone --backbone_feature=2DConv  --feature_multiplier 2 --with_resnet 34 --with_dense --class_split visual --test_only 
+```
+
+and on the non-visual classes using:
+
+```bash
+python src/main.py --SoccerNet_path=/path/to/SoccerNet/ --features=ResNET_TF2_PCA512.npy --num_features=512 --model_name=Calib_Best_NVIS --batch_size 32 --backbone_feature=2DConv --feature_multiplier 2 --class_split nonvisual --test_only
+```
+
+To compute the final average-mAP you can simply use the following average mean:
+
+<code>(8/17)*a_mAP(VIS) + (9/17)*a_mAP(NVIS)</code>.
+
+With our pre-trained weights, you should get:
+
+<code>(8/17)*41.83% + (9/17)*51.28%</code>=46.8%.
+
+Note that since each model predicts actions on a particular set of classes, you will need to merge the predictions of both models. Also, as the results are saved in the <code>outputs/</code> folder, you will need to save the results of the first model in another folder before running the second command line, not to overwrite the first results. If you wish to have a complete set of predictions in a single file, you can merge the prediction files game per game by simple concatenation of the predictions, as the set of classes is separate in each model.
+
+
 ## Authors
 
 * **Anthony Cioppa**, University of Liège (ULiège).
