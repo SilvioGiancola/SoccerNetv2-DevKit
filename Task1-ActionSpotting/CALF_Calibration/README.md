@@ -83,8 +83,7 @@ python src/main.py --SoccerNet_path=/path/to/SoccerNet/ \
 --calibration --calibration_field --calibration_cone \
 --backbone_feature=2DConv  \
  --feature_multiplier 2 \
---class_split visual \
---teacher
+--class_split visual
 ```
 
 Please find the complete list of arguments in the <code>src/main.py</code> file
