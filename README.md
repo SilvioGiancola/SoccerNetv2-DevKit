@@ -1,6 +1,6 @@
 # SoccerNetv2-DevKit
 
-Welcome to the SoccerNet-V2 Development Kit for the SoccerNet Benchmark and Challenge. This kit is meant as a help to get started working with the soccernet data and the proposed tasks. More information about the dataset can be found on our [official website](https://soccer-net.org/).
+Welcome to the SoccerNet-V2 Development Kit for the SoccerNet Benchmark and Challenge. This kit is meant as a help to get started working with the soccernet data and the proposed tasks. More information about the dataset can be found on our [official website](https://www.soccer-net.org).
 
 SoccerNet-v2 is an extension of SoccerNet-v1 with new and challenging tasks including
 action spotting, camera shot segmentation with boundary detection, and a novel replay grounding task.
