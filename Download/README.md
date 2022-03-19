@@ -77,8 +77,7 @@ mySoccerNetDownloader.downloadGames(files=["1_720p.mkv", "2_720p.mkv"], split=["
 
 ## Videos (requires a password to download - please fill this [NDA](https://soccer-net.org) to request access)
 
-- **1_720p.mkv**: HQ video 1st half
-- **2_720p.mkv**: HQ video 2nd half
-- **video.ini**: information on start/duration for each half of the game in the HQ video, in second
 - **1_224p.mkv**: LQ video 1st half - timmed with start/duration from HQ video - resolution 224*398 - 25 fps
 - **2_224p.mkv**: LQ video 2nd half - timmed with start/duration from HQ video - resolution 224*398 - 25 fps
+- **1_720p.mkv**: HQ video 1st half - timmed with start/duration from HQ video - resolution 720*1080 - 25 fps
+- **2_720p.mkv**: HQ video 2nd half - timmed with start/duration from HQ video - resolution 720*1080 - 25 fps
