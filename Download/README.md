@@ -30,10 +30,11 @@ If you want to download the videos, you will need to fill a NDA to get the passw
 ```
 mySoccerNetDownloader.password = input("Password for videos?:\n")
 
-# download LQ Videos
-mySoccerNetDownloader.downloadGames(files=["1.mkv", "2.mkv"], split=["train","valid","test","challenge"])
-# download HQ Videos
-mySoccerNetDownloader.downloadGames(files=["1_HQ.mkv", "2_HQ.mkv", "video.ini"], split=["train","valid","test","challenge"])
+# download LQ (224p) Videos
+mySoccerNetDownloader.downloadGames(files=["1_224p.mkv", "2_224p.mkv"], split=["train","valid","test","challenge"])
+
+# download HQ (720p) Videos
+mySoccerNetDownloader.downloadGames(files=["1_720p.mkv", "2_720p.mkv"], split=["train","valid","test","challenge"])
 ```
 ## What data are available for Download?
 
@@ -76,8 +77,8 @@ mySoccerNetDownloader.downloadGames(files=["1_HQ.mkv", "2_HQ.mkv", "video.ini"],
 
 ## Videos (requires a password to download - please fill this [NDA](https://soccer-net.org) to request access)
 
-- **1_HQ.mkv**: HQ video 1st half
-- **2_HQ.mkv**: HQ video 2nd half
+- **1_720p.mkv**: HQ video 1st half
+- **2_720p.mkv**: HQ video 2nd half
 - **video.ini**: information on start/duration for each half of the game in the HQ video, in second
-- **1.mkv**: LQ video 1st half - timmed with start/duration from HQ video - resolution 224*398 - 25 fps
-- **2.mkv**: LQ video 2nd half - timmed with start/duration from HQ video - resolution 224*398 - 25 fps
+- **1_224p.mkv**: LQ video 1st half - timmed with start/duration from HQ video - resolution 224*398 - 25 fps
+- **2_224p.mkv**: LQ video 2nd half - timmed with start/duration from HQ video - resolution 224*398 - 25 fps
