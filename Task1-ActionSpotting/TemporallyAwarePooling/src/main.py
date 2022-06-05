@@ -71,6 +71,10 @@ def main(args):
                 model_name=args.model_name,
                 max_epochs=args.max_epochs, evaluation_frequency=args.evaluation_frequency)
 
+    # Free up some RAM memory
+    del dataset_Train, dataset_Valid, dataset_Valid_metric, dataset_Test
+    del train_loader, val_loader, val_metric_loader
+
     # For the best model only
     checkpoint = torch.load(os.path.join("models", args.model_name, "model.pth.tar"))
     model.load_state_dict(checkpoint['state_dict'])
