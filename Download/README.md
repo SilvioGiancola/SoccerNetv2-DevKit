@@ -75,7 +75,7 @@ mySoccerNetDownloader.downloadGames(files=["1_720p.mkv", "2_720p.mkv"], split=["
 - **1_ResNET_PCA512.npy**: ResNET features @2fps for 1st half from SoccerNet-v1, with dimensionality reduced to 512 using PCA
 - **2_ResNET_PCA512.npy**: ResNET features @2fps for 2nd half from SoccerNet-v1, with dimensionality reduced to 512 using PCA
 
-## Videos (requires a password to download - please fill this [NDA](https://soccer-net.org) to request access)
+## Videos (requires a password to download - please fill this [NDA](https://www.soccer-net.org) to request access)
 
 - **1_224p.mkv**: LQ video 1st half - timmed with start/duration from HQ video - resolution 224*398 - 25 fps
 - **2_224p.mkv**: LQ video 2nd half - timmed with start/duration from HQ video - resolution 224*398 - 25 fps
