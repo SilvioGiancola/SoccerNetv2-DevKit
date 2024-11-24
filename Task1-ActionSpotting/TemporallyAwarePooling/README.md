@@ -41,6 +41,50 @@ python src/main.py --SoccerNet_path=path/to/SoccerNet/ --model_name=NetVLAD++_ru
 done
 ```
 
+## Inference on custom .mp4 files
+
+First navigate to the working directory of TemporallyAwarePooling.
+
+Then run the following script:
+
+```
+python inference/main.py --video_path=/path/to/video/files.mp4
+```
+
+By default it will extract features to the */inference/outputs/features.npy*
+
+Then it will call *NetVALD++* model on this video and will store the *.json* files in the following path:
+
+```
+models/model_name/
+```
+
+The *model_name* by default is *NetVALD++* you can change it to one of the followings:
+
+
+```
+NetVALD++_Challenge
+NetVALD++_run_0
+NetVALD++_run_1
+NetVALD++_run_2
+NetVALD++_run_3
+NetVALD++_run_4
+```
+
+For doing so, you can add *model_name* argument to the main function as follows:
+
+```
+python inference/main.py --video_path=/path/to/video/files.mp4 --model_name=NetVALD++
+```
+
+
+```bash
+for run in {0..4}; do
+python src/main.py --SoccerNet_path=path/to/SoccerNet/ --model_name=NetVLAD++_run_${run} --test_only
+done
+```
+
+
 ## Submission for the SoccerNet-v2 Challenge
 
 For the SoccerNet-v2 challenge, we train on an aggregation of the train+val sets, we validate on the test set and infer on the challenge set.
